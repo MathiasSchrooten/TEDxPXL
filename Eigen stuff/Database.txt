@@ -1,0 +1,32 @@
+Database:
+	Users:
+		UserId
+		Username
+		Password
+		Email
+		Firstname
+		Lastname
+	
+	Categories:
+		CategorieId
+		Name
+
+	Posts:
+		PostId
+		Description
+		Title
+		UserId (posted by which user)
+	
+	Comments:
+		CommentId
+		Text
+		PostId (commented on which post)
+		UserId (commented by which user)
+
+	Events
+		EventId
+		Title
+		Description
+		DateTime
+		UserId (created by which user)
+		
