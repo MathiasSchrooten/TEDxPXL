@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 22 apr 2015 om 11:10
+-- Gegenereerd op: 22 apr 2015 om 12:15
 -- Serverversie: 5.6.21
 -- PHP-versie: 5.6.3
 
@@ -56,8 +56,16 @@ CREATE TABLE IF NOT EXISTS `events` (
   `Description` varchar(250) NOT NULL,
   `Date` date NOT NULL,
   `Time` time NOT NULL,
-  `UserId` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `UserId` int(11) NOT NULL,
+  `Image` varchar(100) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `events`
+--
+
+INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`) VALUES
+(1, 'Test', 'Test omschrijving', '2015-04-22', '12:00:00', 1, '');
 
 -- --------------------------------------------------------
 
@@ -140,7 +148,7 @@ MODIFY `CommentId` int(11) NOT NULL AUTO_INCREMENT;
 -- AUTO_INCREMENT voor een tabel `events`
 --
 ALTER TABLE `events`
-MODIFY `EventId` int(11) NOT NULL AUTO_INCREMENT;
+MODIFY `EventId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
 --
 -- AUTO_INCREMENT voor een tabel `posts`
 --
