@@ -116,6 +116,11 @@ textarea {
   font: inherit;
   color: inherit;
 }
+password {
+  margin: 0;
+  font: inherit;
+  color: inherit;
+}
 button {
   overflow: visible;
 }
@@ -170,7 +175,7 @@ legend {
   padding: 0;
   border: 0;
 }
-textarea {
+textarea, password {
   overflow: auto;
 }
 optgroup {
@@ -228,7 +233,8 @@ th {
     widows: 3;
   }
   h2,
-  h3 {
+  h3,
+  h4 {
     page-break-after: avoid;
   }
   select {
@@ -282,7 +288,7 @@ body {
 input,
 button,
 select,
-textarea {
+textarea, password {
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -419,7 +425,9 @@ h3 .small,
   font-size: 65%;
 }
 h4,
-.h4,
+.h4 {
+
+}
 h5,
 .h5,
 h6,
@@ -1728,7 +1736,7 @@ fieldset[disabled] .form-control {
   background-color: none;
   opacity: 1;
 }
-textarea.form-control {
+textarea.form-control, password.form-control {
   height: auto;
 }
 input[type="search"] {
@@ -1808,6 +1816,12 @@ textarea.input-sm,
 select[multiple].input-sm {
   height: auto;
 }
+
+password.input-sm,
+select[multiple].input-sm {
+  height: auto;
+}
+
 .input-lg {
   height: 46px;
   padding: 10px 16px;

@@ -13,7 +13,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/easing.js"></script>
 		<!----<script type="text/javascript">
 					jQuery(document).ready(function($) {
-						$(".scroll").click(function(event){		
+						$(".scroll").click(function(event){
 							event.preventDefault();
 							$('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
 						});
@@ -68,16 +68,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<li class="<?php if(uri_string()==='home') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('home'); ?>" class="scroll">Home</a></li>
 						<li class="<?php if(uri_string()==='events') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('events'); ?>" class="scroll">Events</a></li>
 						<li class="<?php if(uri_string()==='categories') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('categories'); ?>" class="scroll">Forum</a></li>
-						
+            <li class="<?php if(uri_string()==='search') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('search'); ?>" class="scroll">Search</a></li>
+
 						<?php
 							if ($this->session->userdata('logged_in'))
-							{ 
+							{
 						?>
 							<li class="<?php if(uri_string()==='userpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('userpanel'); ?>" class="scroll">Userpanel</a></li>
 						<?php
 							}
 						?>
-						
+
 						<li class="<?php if(uri_string()==='login') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php if($this->session->userdata('logged_in')) { echo site_url('home/logout'); } else { echo site_url('login'); }  ?>" class="scroll"><?php if($this->session->userdata('logged_in')) { echo 'Logout'; } else { echo 'Login'; } ?></a></li>
 					</ul>
 					<a href="#" id="pull"><img src="<?php echo base_url();?>assets/images/nav-icon.png" title="menu" /></a>
