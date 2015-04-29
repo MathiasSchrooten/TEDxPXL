@@ -22,7 +22,7 @@
 				</br>
 				<?php foreach ($results as $r):?>
           <div class="col-md 6 contact-left">
-					<form>
+					<form onSubmit="">
             <p>Profilepicture: </p>
         <!--    <img height=40 width=40 src="<?=$r->picture?>" -->
           <p> E-mail:</p>
