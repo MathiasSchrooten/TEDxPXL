@@ -835,6 +835,24 @@ nav a#pull {
 	-o-border-radius: 0.3em;
 	outline:none;
 }
+.contact-left input[type="button"], .contact-left-login input[type="button"]{
+	background: #FD3B01;
+	text-transform: uppercase;
+	color: #FFF;
+	font-size: 1em;
+	border: none;
+	padding: 0.8em 3em;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	outline:none;
+}
 .contact-left-login input[type="submit"]{
 	background: #FD3B01;
 	text-transform: uppercase;
@@ -853,7 +871,28 @@ nav a#pull {
 	-o-border-radius: 0.3em;
 	outline:none;
 }
+.contact-left-login input[type="button"]{
+	background: #FD3B01;
+	text-transform: uppercase;
+	color: #FFF;
+	font-size: 1em;
+	border: none;
+	padding: 0.8em 3em;
+	transition:0.5s all;
+	-webkit-transition:0.5s all;
+	-moz-transition:0.5s all;
+	-o-transition:0.5s all;
+	-ms-transition:0.5s all;
+	border-radius: 0.3em;
+	-webkit-border-radius: 0.3em;
+	-moz-border-radius: 0.3em;
+	-o-border-radius: 0.3em;
+	outline:none;
+}
 .contact-left input[type="submit"]:hover{
+	background:#394346;
+}
+.contact-left input[type="button"]:hover{
 	background:#394346;
 }
 .contact-grids{

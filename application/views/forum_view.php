@@ -1,11 +1,22 @@
     <?php 
 		$this->load->view('header_view');
 	?>
+	
+		<script>
+			function backToOverview(){
+				window.location='<?php echo site_url('categories'); ?>';
+			}
+		</script>
+	
 		<div id="port" class="portfolio portfolio-box">
 			<div class="head text-center">
 				<h3><span> </span> Forum</h3>
 				<p>Welcome to the forum of TEDxPXL</p>
 				</br>
+				<form class="col-md 6 contact-left text-center">
+					<input type="button" value="Back to overview" onClick="backToOverview();"/>
+					<input type="button" value="Create new post"/>
+				</form>
 			</div>
 			<!----start-portfolio---->
 			<div id="port" class="portfolio-main">
@@ -32,12 +43,6 @@
 								<td><?=$r->Username?></td>
 							</tr>
 				<?php endforeach; }?>	
-
-				<tr>
-					<td><a href="<?php echo site_url('categories'); ?>">Back to overview</a></td>
-					<td></td>
-					<td><a href="#">Create new post</a></td>
-				</tr>
 				</table>
 			</div>
 		</div>
