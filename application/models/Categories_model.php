@@ -6,10 +6,23 @@ class Categories_model extends CI_Model {
 		
 		// return $query->result();
 		
-		$query1 = $this->db->get('Categories');
-		$query2 = $this->db->query("SELECT COUNT(*) AS rowCount FROM Posts");
+		$this->db->select('Categories.CategorieId, Categories.Name, COUNT(posts.PostId) AS catCount');
+		$this->db->from('categories');
+		$this->db->join('posts', 'categories.CategorieId = posts.CategorieId', 'left');
+		$this->db->group_by('CategorieId'); 
 		
-		$return array('categories' => $query1, 'count' => $query2);
+		$query = $this->db->get();
+		
+		return $query->result();
+		
+		// $query1 = $this->db->get('Categories')->result(); 
+		
+		// for ($i = 1 ; $i <= 3 ; $i++)
+		// {
+			// $query2 = $this->db->query("SELECT COUNT(*) AS rowCount FROM Posts WHERE CategorieId='" . $i ."'")->result();
+		// }
+		
+		// return array('categories' => $query1, 'count' => $query2);
 	}
 	
 	function searchCategories($search){
