@@ -1,7 +1,7 @@
-    <?php 
+    <?php
 		$this->load->view('header_view');
 	?>
-		<!----start-feartures----->
+  <!----start-feartures----->
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
@@ -11,17 +11,21 @@
 				</br>
 				<?php echo validation_errors(); ?>
 			    <?php echo form_open('verifylogin'); ?>
-				<label for="username">Username:</label>
-				<input type="text" size="20" id="username" name="username"/>
-				<br/>
-				<label for="password">Password:</label>
-				<input type="password" size="20" id="password" name="password"/>
-				<br/>
-				<input type="submit" value="Login"/>
-			    </form>
+        <div class="col-md 6 contact-left">
+          <form class="col-md 6 contact-left">
+    				Username:
+            <br/>
+    				<input type="text" size="20" id="username" name="username"/>
+    				<br/>
+    				Password:
+            <br/>
+    				<input type="password" size="20" id="password" name="password"/>
+    				<br/>
+    				<input type="submit" value="Login"/>
+  			  </form>
+        </div>
 			</div>
 		</div>
 		<!----//End-feartures----->
     </body>
 </html>
-
