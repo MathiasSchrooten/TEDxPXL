@@ -5,7 +5,9 @@ class Categories_model extends CI_Model {
 		$query=$this->db->get('Categories');
 		return $query->result();
 	}
-	
+	function searchCategories($search){
+		return $query->result();
+	}
 	public function update($id,$data){
 		$this->db->where('id', $id);
 		$this->db->update('Categories', $data);
