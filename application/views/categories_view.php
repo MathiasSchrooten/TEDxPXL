@@ -9,18 +9,21 @@
 		</div>
 			<!----start-portfolio---->
 		<div id="port" class="portfolio-main">
-			<table width="40%" border="0" align="center" cellpadding="3" cellspacing="1">
-			<tr>
-			<td width="15%" align="left" bgcolor="#E6E6E6"><strong>Category name</strong></td>
-			<td width="15%" align="left" bgcolor="#E6E6E6"><strong>Post count</strong></td>
-			</tr>
-
-			<?php foreach ($results as $r):?>
-				<tr>
-				<td bgcolor="#FFFFFF"><a><?=$r->Name?></a></td>
-				<td bgcolor="#FFFFFF">NA</td>
-				</tr>
-			<?php endforeach;?>	
+			<table class="table table-hover">
+				<thead>
+				  <tr>
+					<th>Category name</th>
+					<th>Post count</th>
+				  </tr>
+				</thead>
+				<tbody>
+					<?php foreach ($results['categories'] as $r):?>
+						<tr>
+							<td><a href="<?php echo site_url('forum'); ?>/<?=$r->CategorieId?>"><?=$r->Name?></a></td>
+							<td><?=$r->rowCount?></td>
+						</tr>
+					<?php endforeach;?>	
+				</tbody>
 			</table>	
 		</div>
 	</div>

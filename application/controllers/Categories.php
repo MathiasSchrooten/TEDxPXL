@@ -8,10 +8,10 @@ class Categories extends CI_Controller {
 		$this->load->model("Categories_model");
 
 		$results=$this->Categories_model->getCategories();
+		
+		//$data=array('results'=>$results);
 
-		$data=array('results'=>$results);
-
-		$this->load->view('Categories_view',$data);
+		$this->load->view('Categories_view',$results);
 	}
 
 }
