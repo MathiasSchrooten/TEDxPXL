@@ -3,19 +3,23 @@
 	?>
 	
 		<script>
-			function backToOverview(){
+			function back(){
 				window.location='<?php echo site_url('categories'); ?>';
+			}
+			
+			function newPost(){
+				window.location='<?php echo site_url(array('forum','insert'))?>/<?php foreach ($results as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
 			}
 		</script>
 	
 		<div id="port" class="portfolio portfolio-box">
 			<div class="head text-center">
-				<h3><span> </span> Forum</h3>
+				<h3><span> </span> <?php foreach ($results as $r): ?> <?=$r->Name?> <?php break; endforeach; ?></h3>
 				<p>Welcome to the forum of TEDxPXL</p>
 				</br>
 				<form class="col-md 6 contact-left text-center">
-					<input type="button" value="Back to overview" onClick="backToOverview();"/>
-					<input type="button" value="Create new post"/>
+					<input type="button" value="Back" onClick="back();"/>
+					<input type="button" value="New post" onClick="newPost()"/>
 				</form>
 			</div>
 			<!----start-portfolio---->

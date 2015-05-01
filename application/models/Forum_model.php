@@ -9,7 +9,8 @@ class Forum_model extends CI_Model {
 	function getPostsById($id) 
 	{
 		$this->db->join('users', 'posts.UserId = users.UserId', 'right');
-		$this->db->where('CategorieId', $id);
+		$this->db->join('categories', 'categories.CategorieId = posts.CategorieId');
+		$this->db->where('posts.CategorieId', $id);
 		$query=$this->db->get('posts');
 		return $query->result();
 	}

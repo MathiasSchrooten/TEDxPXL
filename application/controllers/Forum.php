@@ -27,4 +27,24 @@ class Forum extends CI_Controller {
 
 		$this->load->view('forum_view',$data); 
 	}
+	
+	public function insert(){
+		if (isset($_POST["action"])){ // && $_POST["action"]=="insert" 
+			$data=[];
+			$data["title"]=$_POST["title"];
+			$data["description"]=$_POST["description"];
+			$data["userId"]=$_POST["postedBy"];
+			$data["categorieId"]=$_POST["categorieId"];
+
+			$this->load->model("forum_model");
+			
+			$this->forum_model->insert($data); 
+			redirect(base_url().index_page().'/forum/' . $data["categorieId"], 'refresh');
+		}
+		else
+		{
+			$data['catId'] = $this->uri->segment(3);
+			$this->load->view('foruminsert_view', $data);			
+		}
+	}
 }
