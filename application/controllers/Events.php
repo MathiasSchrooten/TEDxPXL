@@ -14,5 +14,17 @@ class Events extends CI_Controller {
 
 		$this->load->view('events_view',$data); 
 	}
+	
+	public function getEventById() {
+		$this->load->database();
+		$this->load->model("EventsDetail_model");
 
+		$eventId = $this->uri->segment(2);
+		
+		$results=$this->EventsDetail_model->getDetails($eventId);
+
+		$data=array('results'=>$results);
+
+		$this->load->view('eventsdetail_view',$data); 
+	}
 }

@@ -564,10 +564,10 @@ nav a#pull {
 	padding:3em 0;
 }
 .blog-time-line{
-	background:url(../images/blog-grids-bg.jpg) no-repeat 0px 0px;
+	/*background:url(../images/blog-grids-bg.jpg) no-repeat 0px 0px;*/
 	background-size:cover;
 	position:relative;
-	margin: 3em 0 0 0;
+	/*margin: 3em 0 0 0;*/
 }
 .categorie{
 	color:#959594;
@@ -598,8 +598,8 @@ nav a#pull {
 	width: 80%;
 }
 .blog-post-date span{
-	width: 90px;
-	height: 90px;
+	width: 250px;
+	height: 85px;
 	display: inline-block;
 	background: #FD3B01;
 	border-radius: 30em;
@@ -634,6 +634,12 @@ nav a#pull {
 	background: rgba(255, 255, 255, 0.74);
 	padding: 3em 0;
 }
+.blog-time-line-left {
+	background: rgba(255, 255, 255, 0.74);
+	padding: 3em 0;
+	text-align: right;
+}
+
 .more-blog-post-time-line-connector{
 	position: absolute;
 	bottom: 5%;
