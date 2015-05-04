@@ -11,6 +11,11 @@ body a{
 	-ms-transition:0.5s all;
 	cursor:pointer;
 }
+#profPic{
+height: 120px;
+width: 120px;
+}
+
 /*----start-header----*/
 .header{
 	/*background:url(../images/header-bg.jpg) no-repeat 0px 0px;

@@ -24,7 +24,8 @@
 				<div class="col-md 6 contact-left">
 					<form onSubmit="">
 							<p>Profilepicture: </p>
-							<!--    <img height=40 width=40 src="<?=$r->picture?>" -->
+							<img id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
+						</br>
 							<p> E-mail:</p>
 							<input class="textarea" type="text" size="40" id="email" name="email" value="<?=$r->Email?>"/>
 						<br/>
