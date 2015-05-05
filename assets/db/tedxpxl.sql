@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 22 apr 2015 om 18:31
+-- Gegenereerd op: 04 mei 2015 om 14:24
 -- Serverversie: 5.6.21
 -- PHP-versie: 5.6.3
 
@@ -75,7 +75,7 @@ CREATE TABLE IF NOT EXISTS `events` (
 
 INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`) VALUES
 (1, 'Test', 'Test omschrijving', '2015-04-22', '12:00:00', 1, 'p8.jpg'),
-(2, 'Test2', 'Test omschrijving2', '2015-04-23', '12:22:00', 1, 'p6.jpg'),
+(2, 'Test2', 'Dit is een extra lange omschrijving om te testen hoe dit er uit ziet op de website, hopelijk gaat het er goed uit zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg'),
 (3, 'Test3', 'Test omschrijving3', '2015-04-24', '12:40:00', 1, 'p1.jpg'),
 (4, 'Test4', 'Test omschrijving4', '2015-04-14', '06:40:00', 1, 'p7.jpg');
 
@@ -91,7 +91,7 @@ CREATE TABLE IF NOT EXISTS `posts` (
   `Title` varchar(50) NOT NULL,
   `UserId` int(11) NOT NULL,
   `CategorieId` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `posts`
@@ -99,7 +99,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
 
 INSERT INTO `posts` (`PostId`, `Description`, `Title`, `UserId`, `CategorieId`) VALUES
 (1, 'Dit is wel een vette site zeg!', 'Vette site!', 1, 1),
-(2, 'Wat een stomme site...', 'Stomme site!', 1, 2);
+(2, 'Wat een stomme site...', 'Stomme site!', 1, 2),
+(3, 'sgfsg', 'Test titel', 1, 2),
+(4, '12314254', 'Test', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -114,15 +116,16 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Email` varchar(150) NOT NULL,
   `Firstname` varchar(50) NOT NULL,
   `Lastname` varchar(50) NOT NULL,
-  `Role` int(11) NOT NULL
+  `Role` int(11) NOT NULL,
+  `Picture` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`) VALUES
-(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 2);
+INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`) VALUES
+(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 2, 'test.jpg');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -181,7 +184,7 @@ MODIFY `EventId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT voor een tabel `posts`
 --
 ALTER TABLE `posts`
-MODIFY `PostId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
+MODIFY `PostId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `users`
 --
