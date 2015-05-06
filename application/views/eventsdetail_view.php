@@ -46,7 +46,7 @@
 					</div>
 					<div class="clearfix"> </div>
 					<form id="back" class="col-md 6 contact-left text-center" action="<?php echo site_url('events'); ?>">
-						<input type="submit" name="back" value="Back"/>
+						<input type="submit" value="Back"/>
 					</form>
 				</div>
 			<?php endforeach;?>
