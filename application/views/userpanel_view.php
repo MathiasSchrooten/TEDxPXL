@@ -27,7 +27,7 @@
 							<img id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
 						</br>
 							<p> E-mail:</p>
-							<input class="textarea" type="text" size="40" id="email" name="email" value="<?=$r->Email?>"/>
+							<input class="textarea" type="email" size="40" id="email" name="email" value="<?=$r->Email?>"/>
 						<br/>
 							<p>Password: </p>
 							<input class="password" type="password" size="20" id="password" name="password" value="<?=$r->Password?>"/>
