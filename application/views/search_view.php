@@ -54,29 +54,71 @@ $this->load->view('header_view');
 			<?php if(isset($_GET["loc"]) and $_GET["loc"] === "all"){ ?>
 			<ul class="nav nav-pills nav-justified" role="tablist" id="searchTab">
   			<li role="presentation" class="active"><a href="#ca" id="ca-tab" role="tab" data-toggle="tab" aria-controls="ca" aria-expanded="true">
-					Categories <span class="badge">10</span></a></li>
+					Categories <span class="badge"><?php echo sizeof($cat); ?></span></a></li>
   			<li role="presentation"><a href="#co" aria-controls="co" role="tab" data-toggle="tab">
-					Comments <span class="badge">10</span></a></li>
-  			<li role="presentation"><a href="#ev" aria-controls="ev" role="tab" data-toggle="tab">Events</a></li>
-				<li role="presentation"><a href="#po" aria-controls="po" role="tab" data-toggle="tab">Posts</a></li>
-				<li role="presentation"><a href="#us" aria-controls="us" role="tab" data-toggle="tab">Users</a></li>
+					Comments <span class="badge"><?php echo sizeof($co); ?></span></a></li>
+  			<li role="presentation"><a href="#ev" aria-controls="ev" role="tab" data-toggle="tab">
+					Events <span class="badge"><?php echo sizeof($ev); ?></span></a></li>
+				<li role="presentation"><a href="#po" aria-controls="po" role="tab" data-toggle="tab">
+					Posts <span class="badge"><?php echo sizeof($po); ?></span></a></li>
+				<li role="presentation"><a href="#us" aria-controls="us" role="tab" data-toggle="tab">
+					Users <span class="badge"><?php echo sizeof($us); ?></span></a></li>
 				</ul>
-			<?php } ?>
+				<?php } ?>
 			<div class="tab-content">
-				<div role="tabpanel" class="tab-pane active" id="ca">cat test</div>
-				<div role="tabpanel" class="tab-pane" id="co">comment test</div>
-				<div role="tabpanel" class="tab-pane" id="messages">...</div>
-				<div role="tabpanel" class="tab-pane" id="settings">...</div>
+				<div role="tabpanel" class="tab-pane fade in active" id="ca">
+					<br/><br/>
+					<?php
+						if(isset($cat)){
+							foreach($cat as $c){?>
+								<?php echo "<a href=" . ">" . $c->Name; ?></a><br/><br/>
+							<?php }
+						}
+					?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="co">
+					<br/><br/>
+					<?php
+						if(isset($co)){
+							foreach($co as $c){?>
+								<?php echo "<a href=" . ">" . $c->Text; ?></a><br/><br/>
+							<?php }
+						}
+					?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="ev">
+					<br/><br/>
+					<?php
+						if(isset($ev)){
+							foreach($ev as $e){?>
+								<?php echo "<a href=" . ">" . $e->Title; ?></a><br/><br/>
+							<?php }
+						}
+					?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="po">
+					<br/><br/>
+					<?php
+						if(isset($po)){
+							foreach($po as $p){?>
+								<?php echo "<a href=" . ">" . $p->Title; ?></a><br/><br/>
+							<?php }
+						}
+					?>
+				</div>
+				<div role="tabpanel" class="tab-pane fade" id="us">
+					<br/><br/>
+					<?php
+						if(isset($us)){
+							foreach($us as $u){?>
+								<?php echo "<a href=" . ">" . $u->Username; ?></a><br/><br/>
+							<?php }
+						}
+					?>
+				</div>
 			</div>
 
-			<?php
 
-				if(isset($cat)){
-					foreach($cat as $c){
-					echo "" . $c->Name;
-					}
-				}
-			?>
 		</div>
 		<script type="text/javascript">
     	jQuery(document).ready(function ($) {
