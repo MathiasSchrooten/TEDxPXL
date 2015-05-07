@@ -7,7 +7,8 @@ class Userpanel extends CI_Controller {
 		$this->load->database();
 		$this->load->model("userpanel_model");
 
-		$results=$this->userpanel_model->getDetails();
+		$session_data = $this->session->userdata('logged_in');
+		$results=$this->userpanel_model->getDetails($session_data['id']);
 
 		$data=array('results'=>$results);
 

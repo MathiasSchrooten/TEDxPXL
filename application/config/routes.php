@@ -54,3 +54,4 @@ $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['forum/:num'] = "forum/getForum";
 $route['eventsdetail/:num'] = "events/getEventById";
+$route['userpage/:num'] = "userpage";

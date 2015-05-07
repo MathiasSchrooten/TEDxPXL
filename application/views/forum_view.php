@@ -44,7 +44,7 @@
 							<tr>
 								<td><?=$r->Title?></td>
 								<td><?=$r->Description?></td>
-								<td><?=$r->Username?></td>
+								<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
 							</tr>
 				<?php endforeach; }?>	
 				</table>

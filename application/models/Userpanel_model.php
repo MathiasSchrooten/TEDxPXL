@@ -1,6 +1,7 @@
 <?php
 class Userpanel_model extends CI_Model {
-	function getDetails(){
+	function getDetails($id){
+		$this->db->where('UserId', $id);
 		$query=$this->db->get('users');
 		return $query->result();
 	}

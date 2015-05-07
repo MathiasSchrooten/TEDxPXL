@@ -4,6 +4,7 @@
 	   {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
+		 $data['id'] = $session_data['id'];
 		 //$this->load->view('home_view', $data);
 	   }
 	   else
@@ -22,8 +23,8 @@
 				</div>
 				</br>
 				<div class="col-md 6 contact-left">
-                                    <?php foreach( $results as $r): ?>
-                                        <form onSubmit="<php ?>" method="post" action="<?= site_url(array('Userpanel','update'))?>">
+					<?php foreach( $results as $r): ?>
+							<form onSubmit="<php ?>" method="post" action="<?= site_url(array('Userpanel','update'))?>">
 							<p>Profilepicture: </p>
 							<img id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
 						</br>
@@ -50,7 +51,7 @@
 							<input type="submit" value="Save" name="action"/>
                                                         
 					</form>
-                                    <?php endforeach; ?>
+				<?php endforeach; ?>
 				</div>
 			</div>
                     
