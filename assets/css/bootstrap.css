@@ -295,7 +295,7 @@ textarea, password {
 }
 a {
   color: #1B242F;
-  text-decoration: none;
+  /*text-decoration: none;*/
 }
 a:hover,
 a:focus {
