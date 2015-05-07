@@ -14,12 +14,8 @@ class Forum_model extends CI_Model {
 		$query=$this->db->get('posts');
 		return $query->result();
 	}
-	function searchPostsTitle($search){
-		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%$search%'");
-		return $query->result();
-	}
-	function searchPostsDesciption($search){
-		$query = $this->db->query("SELECT * FROM posts WHERE description LIKE '%$search%'");
+	function searchPosts($search){
+		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%$search%' or description LIKE '%$search%'");
 		return $query->result();
 	}
 	public function update($id,$data){

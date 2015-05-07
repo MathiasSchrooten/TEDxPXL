@@ -20,7 +20,8 @@ class User_model extends CI_Model {
 	   }
 	 }
 	function searchUsers($search){
-		$query = $this->db->query("SELECT * FROM users WHERE username LIKE '%$search%'");
+		$query = $this->db->query("SELECT * FROM users WHERE username LIKE '%$search%'
+			OR firstname LIKE '%$search%' OR lastname LIKE '%$search%' OR email LIKE '%$search%'");
 		return $query->result();
 	}
 }

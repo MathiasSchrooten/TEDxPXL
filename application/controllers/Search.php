@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Search extends CI_Controller {
 	public function index(){
 		$this->load->database();
-		if(isset($_GET["search"]) and isset($_GET["loc"])){
+		if(isset($_GET["search"])){
 
 			$this->load->model('Categories_model');
 			$res = $this->Categories_model->searchCategories($_GET["search"]);
@@ -15,11 +15,13 @@ class Search extends CI_Controller {
 			$data['co'] = $res; // TEMPORARY COMMENTS
 
 			$this->load->model('Events_model');
-			$res = $this->Events_model->searchEventsTitle($_GET["search"]);
+			$res = $this->Events_model->searchEvents($_GET["search"]);
 			$data['ev'] = $res;
+
 			$this->load->model('Forum_model');
-			$res = $this->Forum_model->searchPostsTitle($_GET["search"]);
+			$res = $this->Forum_model->searchPosts($_GET["search"]);
 			$data['po'] = $res;
+
 			$this->load->model('User_model');
 			$res = $this->User_model->searchUsers($_GET["search"]);
 			$data['us'] = $res;
