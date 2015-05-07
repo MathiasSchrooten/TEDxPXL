@@ -10,6 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
 		<!---- start-smoth-scrolling---->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/move-top.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/easing.js"></script>
 		<!----<script type="text/javascript">
 					jQuery(document).ready(function($) {

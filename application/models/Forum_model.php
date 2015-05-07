@@ -5,8 +5,8 @@ class Forum_model extends CI_Model {
 		$query=$this->db->get('posts');
 		return $query->result();
 	}
-	
-	function getPostsById($id) 
+
+	function getPostsById($id)
 	{
 		$this->db->join('users', 'posts.UserId = users.UserId', 'right');
 		$this->db->join('categories', 'categories.CategorieId = posts.CategorieId');
@@ -14,7 +14,14 @@ class Forum_model extends CI_Model {
 		$query=$this->db->get('posts');
 		return $query->result();
 	}
-	
+	function searchPostsTitle($search){
+		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%$search%'");
+		return $query->result();
+	}
+	function searchPostsDesciption($search){
+		$query = $this->db->query("SELECT * FROM posts WHERE description LIKE '%$search%'");
+		return $query->result();
+	}
 	public function update($id,$data){
 		$this->db->where('id', $id);
 		$this->db->update('posts', $data);

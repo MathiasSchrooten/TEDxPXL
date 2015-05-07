@@ -7,9 +7,9 @@ class User_model extends CI_Model {
 	   $this -> db -> where('Username', $username);
 	   $this -> db -> where('Password', $password);
 	   $this -> db -> limit(1);
-	 
+
 	   $query = $this -> db -> get();
-	 
+
 	   if($query -> num_rows() == 1)
 	   {
 		 return $query->result();
@@ -19,5 +19,9 @@ class User_model extends CI_Model {
 		 return false;
 	   }
 	 }
+	function searchUsers($search){
+		$query = $this->db->query("SELECT * FROM users WHERE name LIKE '%$search%'");
+		return $query->result();
+	}
 }
 ?>
