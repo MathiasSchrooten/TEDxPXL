@@ -29,11 +29,7 @@
 						</br>
                                                 <input class="textarea" type="hidden" size="40" name="UserId" id="UserId" value="<?=$r->UserId?>"/>
 							<p> E-mail:</p>
-<<<<<<< HEAD
 							<input class="textarea" type="text" size="40" id="Email" name="Email" value="<?=$r->Email?>"/>
-=======
-							<input class="textarea" type="email" size="40" id="email" name="email" value="<?=$r->Email?>"/>
->>>>>>> origin/master
 						<br/>
 							<p>Password: </p>
 							<input class="password" type="password" size="20" id="Password" name="Password" value="<?=$r->Password?>"/>
