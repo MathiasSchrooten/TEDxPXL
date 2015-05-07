@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.2.11
+-- version 4.3.11
 -- http://www.phpmyadmin.net
 --
--- Machine: 127.0.0.1
--- Gegenereerd op: 04 mei 2015 om 14:24
--- Serverversie: 5.6.21
--- PHP-versie: 5.6.3
+-- Host: 127.0.0.1
+-- Gegenereerd op: 07 mei 2015 om 16:12
+-- Serverversie: 5.6.24
+-- PHP-versie: 5.6.8
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Databank: `tedxpxl`
+-- Database: `tedxpxl`
 --
 
 -- --------------------------------------------------------
@@ -27,7 +27,7 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE IF NOT EXISTS `categories` (
-`CategorieId` int(11) NOT NULL,
+  `CategorieId` int(11) NOT NULL,
   `Name` varchar(50) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
 
@@ -47,7 +47,7 @@ INSERT INTO `categories` (`CategorieId`, `Name`) VALUES
 --
 
 CREATE TABLE IF NOT EXISTS `comments` (
-`CommentId` int(11) NOT NULL,
+  `CommentId` int(11) NOT NULL,
   `Text` varchar(250) NOT NULL,
   `PostId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL
@@ -60,7 +60,7 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 CREATE TABLE IF NOT EXISTS `events` (
-`EventId` int(11) NOT NULL,
+  `EventId` int(11) NOT NULL,
   `Title` varchar(50) NOT NULL,
   `Description` varchar(250) NOT NULL,
   `Date` date NOT NULL,
@@ -86,7 +86,7 @@ INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId
 --
 
 CREATE TABLE IF NOT EXISTS `posts` (
-`PostId` int(11) NOT NULL,
+  `PostId` int(11) NOT NULL,
   `Description` varchar(250) NOT NULL,
   `Title` varchar(50) NOT NULL,
   `UserId` int(11) NOT NULL,
@@ -110,22 +110,29 @@ INSERT INTO `posts` (`PostId`, `Description`, `Title`, `UserId`, `CategorieId`) 
 --
 
 CREATE TABLE IF NOT EXISTS `users` (
-`UserId` int(11) NOT NULL,
+  `UserId` int(11) NOT NULL,
   `Username` varchar(50) NOT NULL,
   `Password` varchar(50) NOT NULL,
   `Email` varchar(150) NOT NULL,
   `Firstname` varchar(50) NOT NULL,
   `Lastname` varchar(50) NOT NULL,
   `Role` int(11) NOT NULL,
-  `Picture` varchar(50) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+  `Picture` varchar(50) NOT NULL,
+  `Signature` varchar(500) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
-INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`) VALUES
-(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 2, 'test.jpg');
+INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`, `Signature`) VALUES
+(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephanes', 'Bisschop', 2, 'test.jpg', ' Loool'),
+(2, 'DylanGomes', '216692', 'dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
+(3, 'DylanGomes', '216692', 'Dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
+(4, 'DylanGomes', '216692', 'Dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
+(5, '', '', '', '', '', 0, '', ''),
+(6, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', ''),
+(7, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -135,31 +142,31 @@ INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `La
 -- Indexen voor tabel `categories`
 --
 ALTER TABLE `categories`
- ADD PRIMARY KEY (`CategorieId`);
+  ADD PRIMARY KEY (`CategorieId`);
 
 --
 -- Indexen voor tabel `comments`
 --
 ALTER TABLE `comments`
- ADD PRIMARY KEY (`CommentId`);
+  ADD PRIMARY KEY (`CommentId`);
 
 --
 -- Indexen voor tabel `events`
 --
 ALTER TABLE `events`
- ADD PRIMARY KEY (`EventId`);
+  ADD PRIMARY KEY (`EventId`);
 
 --
 -- Indexen voor tabel `posts`
 --
 ALTER TABLE `posts`
- ADD PRIMARY KEY (`PostId`);
+  ADD PRIMARY KEY (`PostId`);
 
 --
 -- Indexen voor tabel `users`
 --
 ALTER TABLE `users`
- ADD PRIMARY KEY (`UserId`);
+  ADD PRIMARY KEY (`UserId`);
 
 --
 -- AUTO_INCREMENT voor geëxporteerde tabellen
@@ -169,27 +176,27 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT voor een tabel `categories`
 --
 ALTER TABLE `categories`
-MODIFY `CategorieId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `CategorieId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT voor een tabel `comments`
 --
 ALTER TABLE `comments`
-MODIFY `CommentId` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `CommentId` int(11) NOT NULL AUTO_INCREMENT;
 --
 -- AUTO_INCREMENT voor een tabel `events`
 --
 ALTER TABLE `events`
-MODIFY `EventId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `EventId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `posts`
 --
 ALTER TABLE `posts`
-MODIFY `PostId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `PostId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=2;
+  MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

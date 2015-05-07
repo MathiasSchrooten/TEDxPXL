@@ -25,6 +25,7 @@ class Userpanel extends CI_Controller {
 			$data["Lastname"]=$_POST["Lastname"];
 			$data["Role"]=$_POST["Role"];
 			$data["Picture"]=$_POST["Picture"];
+			$data["Signature"]=$_POST["Signature"];
 			
 			$this->load->model("Userpanel_model");
 			

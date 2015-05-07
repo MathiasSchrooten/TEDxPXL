@@ -47,6 +47,8 @@
 							<input class=" textarea" type="text" size="20" id="Lastname" name="Lastname" value="<?=$r->Lastname?>"/>
 							<p>About yourself: </p>
 							<textarea id="aboutyourself" name="aboutyourself"> </textarea>
+							<p>Signature: </p>
+							<textarea id="Signature" name="Signature"><?=$r->Signature?> </textarea>
 						<br/>
 							<input type="submit" value="Save" name="action"/>
                                                         
