@@ -21,13 +21,16 @@
 					<p>Here you can change your details</p>
 				</div>
 				</br>
-				<?php foreach ($results as $r):?>
 				<div class="col-md 6 contact-left">
-                                    <form onSubmit="<php ?>" method="post" action="<?= site_url(array('Userpanel','update')) ?>">
+                                    <?php foreach( $results as $r): ?>
+                                        <form onSubmit="<php ?>" method="post" action="<?= site_url(array('Userpanel','update'))?>">
 							<p>Profilepicture: </p>
 							<img id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
 						</br>
                                                 <input class="textarea" type="hidden" size="40" name="UserId" id="UserId" value="<?=$r->UserId?>"/>
+                                                <input class="textarea" type="hidden" size="40" name="Username" id="Username" value="<?=$r->Username?>"/>
+                                                <input class="textarea" type="hidden" size="40" name="Role" id="Role" value="<?=$r->Role?>"/>
+                                                <input class="textarea" type="hidden" size="40" name="Picture" id="Picture" value="<?=$r->Picture?>"/>
 							<p> E-mail:</p>
 							<input class="textarea" type="text" size="40" id="Email" name="Email" value="<?=$r->Email?>"/>
 						<br/>
@@ -45,9 +48,10 @@
 							<textarea id="aboutyourself" name="aboutyourself"> </textarea>
 						<br/>
 							<input type="submit" value="Save" name="action"/>
+                                                        
 					</form>
+                                    <?php endforeach; ?>
 				</div>
-				<?php endforeach;?>
 			</div>
                     
 		</div>

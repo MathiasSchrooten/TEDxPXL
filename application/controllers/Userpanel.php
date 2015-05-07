@@ -15,12 +15,16 @@ class Userpanel extends CI_Controller {
 	}
         public function update(){
 		if (isset($_POST["action"])){
-			$data=[];
-                        $data['UserId']=$_POST['UserId'];
-			$data['Email']=$_POST['Email'];
-			$data['Password']=$_POST['Password'];
-			$data['Firstname']=$_POST['Firstname'];
-			$data['Lastname']=$_POST['Lastname'];
+                            $data = array(
+                                    'UserId'        => $this->input->post('UserId'),
+                                    'Username'     => $this->input->post('Username'),
+                                    'Password'           => $this->input->post('Password'),
+                                    'Email'            => $this->input->post('Email'),
+                                    'Firstname'     => $this->input->post('Firstname'),
+                                    'Lastname'     => $this->input->post('Lastname'),
+                                    'Role'      => $this->input->post('Role'),
+                                    'Picture'          => $this->input->post('Picture'),
+);
 
 			$this->load->model("Userpanel_model");
 			
