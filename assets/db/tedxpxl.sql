@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.3.11
 -- http://www.phpmyadmin.net
 --
@@ -25,6 +25,11 @@ SET time_zone = "+00:00";
 --
 -- Tabelstructuur voor tabel `categories`
 --
+DROP TABLE categories;
+DROP TABLE comments;
+DROP TABLE events;
+DROP TABLE posts;
+DROP TABLE users;
 
 CREATE TABLE IF NOT EXISTS `categories` (
   `CategorieId` int(11) NOT NULL,
@@ -36,9 +41,10 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`CategorieId`, `Name`) VALUES
-(1, 'Test categorie 1'),
-(2, 'Test categorie 2'),
-(3, 'Test categorie 3');
+(1, 'Human experimentation'),
+(2, 'Information technology'),
+(3, 'Dark magic'),
+(4, 'Game of Thrones');
 
 -- --------------------------------------------------------
 
@@ -74,10 +80,10 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`) VALUES
-(1, 'Test', 'Test omschrijving', '2015-04-22', '12:00:00', 1, 'p8.jpg'),
-(2, 'Test2', 'Dit is een extra lange omschrijving om te testen hoe dit er uit ziet op de website, hopelijk gaat het er goed uit zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg'),
-(3, 'Test3', 'Test omschrijving3', '2015-04-24', '12:40:00', 1, 'p1.jpg'),
-(4, 'Test4', 'Test omschrijving4', '2015-04-14', '06:40:00', 1, 'p7.jpg');
+(1, 'Dikke Fuif', 'Gratis bier, tequila. Be there', '2015-04-22', '12:00:00', 1, 'p8.jpg'),
+(2, 'Les wiskunde', 'Dit is de wiskunde les van het jaar! Mevrouw Tans gaat ons alle hoeken van de kamer laten zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg'),
+(3, 'Koproltornooi', 'Rol rol rollen maar', '2015-04-24', '12:40:00', 1, 'p1.jpg'),
+(4, 'Buhfest', 'You know.. just buh', '2015-04-14', '06:40:00', 1, 'p7.jpg');
 
 -- --------------------------------------------------------
 
@@ -100,8 +106,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
 INSERT INTO `posts` (`PostId`, `Description`, `Title`, `UserId`, `CategorieId`) VALUES
 (1, 'Dit is wel een vette site zeg!', 'Vette site!', 1, 1),
 (2, 'Wat een stomme site...', 'Stomme site!', 1, 2),
-(3, 'sgfsg', 'Test titel', 1, 2),
-(4, '12314254', 'Test', 1, 1);
+(3, 'Herpederp', 'Dit is een titel', 1, 2),
+(4, 'The king in the north!', 'Game of thrones is da best', 6, 4),
+(5, 'I will kill you all!', 'I Am The Dark Soully', 3, 3);
 
 -- --------------------------------------------------------
 
@@ -128,11 +135,10 @@ CREATE TABLE IF NOT EXISTS `users` (
 INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`, `Signature`) VALUES
 (1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephanes', 'Bisschop', 2, 'test.jpg', ' Loool'),
 (2, 'DylanGomes', '216692', 'dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
-(3, 'DylanGomes', '216692', 'Dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
-(4, 'DylanGomes', '216692', 'Dylangomes@live.be', 'Dylan', 'Gomes', 0, '', ''),
-(5, '', '', '', '', '', 0, '', ''),
-(6, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', ''),
-(7, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', '');
+(3, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', ''),
+(4, 'MathiasS', '123', 'mathiass@gmail.com', 'Mathias', 'Schrooten', 0, '', ''),
+(5, 'TomV', '123', 'tomv@gmail.com', 'Tom', 'Veuskens', 0, '', ''),
+(6, 'JonasL', '123', 'jonasl@gmail.com', 'Jonas', 'Lodewyckx', 0, '', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
