@@ -14,31 +14,30 @@ class Userpanel extends CI_Controller {
 
 		$this->load->view('userpanel_view',$data); 
 	}
-        public function update(){
+	public function update(){
 		if (isset($_POST["action"])){
-                            $data = array(
-                                    'UserId'        => $this->input->post('UserId'),
-                                    'Username'     => $this->input->post('Username'),
-                                    'Password'           => $this->input->post('Password'),
-                                    'Email'            => $this->input->post('Email'),
-                                    'Firstname'     => $this->input->post('Firstname'),
-                                    'Lastname'     => $this->input->post('Lastname'),
-                                    'Role'      => $this->input->post('Role'),
-                                    'Picture'          => $this->input->post('Picture'),
-);
-
+			$data=[];
+			//$data["UserId"]=$_POST["UserId"];
+			$data["Username"]=$_POST["Username"];
+			$data["Password"]=$_POST["Password"];
+			$data["Email"]=$_POST["Email"];
+			$data["Firstname"]=$_POST["Firstname"];
+			$data["Lastname"]=$_POST["Lastname"];
+			$data["Role"]=$_POST["Role"];
+			$data["Picture"]=$_POST["Picture"];
+			
 			$this->load->model("Userpanel_model");
 			
-			$this->Userpanel_model->update($data['UserId'],$data); 
-			redirect(base_url().index_page().'/userpanel/' . $data['UserId'], 'refresh');
+			$this->Userpanel_model->update($_POST["UserId"],$data); 
+			redirect(base_url().index_page().'/userpanel/', 'refresh');
 		}
 		else
 		{
-                        $this->load->database();
-                        $this->load->model('userpanel_model');
-                        $results=$this->userpanel_model->getDetails();
-                        $data=array('results'=>$results);
-                        $this->load->view('userpanel_view', $data);			
+						$this->load->database();
+						$this->load->model('userpanel_model');
+						$results=$this->userpanel_model->getDetails();
+						$data=array('results'=>$results);
+						$this->load->view('userpanel_view', $data);			
 		}
 	}
 }

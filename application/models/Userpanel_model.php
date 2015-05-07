@@ -8,16 +8,16 @@ class Userpanel_model extends CI_Model {
 	
 	public function update($id,$data){
 		$this->db->where('UserId', $id);
-		$this->db->update('posts', $data);
+		$this->db->update('users', $data);
 	}
 
 	public function delete($id){
 		$this->db->where('id', $id);
-		$this->db->delete('posts');
+		$this->db->delete('users');
 	}
 
 	public function insert($data){
-		$this->db->insert('posts', $data);
+		$this->db->insert('users', $data);
 	}
 }
 ?>
