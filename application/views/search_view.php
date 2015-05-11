@@ -42,7 +42,8 @@ $this->load->view('header_view');
 					<?php
 						if(isset($cat) and sizeof($cat) > 0){
 								foreach($cat as $c){?>
-									<?php echo "<a href=" . ">" . $c->Name; ?></a><br/><br/>
+									<?php $link = base_url() . index_page() . "/forum/" . $c->CategorieId;
+									echo "<a href='" . $link .  "' >" . $c->Name; ?></a><br/><br/>
 								<?php }
 							}
 							else{
@@ -68,7 +69,8 @@ $this->load->view('header_view');
 					<?php
 						if(isset($ev) and sizeof($ev) > 0){
 							foreach($ev as $e){?>
-								<?php echo "<a href=" . ">" . $e->Title . "<br/>";
+								<?php $link = base_url() . index_page() . "/eventsdetail/" . $e->EventId;
+								echo "<a href='" . $link . "'>" . $e->Title . "<br/>";
 								echo "<h6>" . $e->Description . "</h6>";  ?></a><br/>
 							<?php }
 						}
@@ -82,7 +84,8 @@ $this->load->view('header_view');
 					<?php
 						if(isset($po) and sizeof($po) > 0){
 							foreach($po as $p){?>
-								<?php echo "<a href=" . ">" . $p->Title  . "<br/>";
+								<?php $link = base_url() . index_page() . "/forum/" . $p->CategorieId;
+								 echo "<a href='" . $link . "'>" . $p->Title  . "<br/>";
 								echo "<h6>" . $p->Description . "</h6>";  ?></a><br/>
 							<?php }
 						}
@@ -96,7 +99,8 @@ $this->load->view('header_view');
 					<?php
 						if(isset($us) and sizeof($us) > 0){
 							foreach($us as $u){?>
-								<?php echo "<a href=" . ">" . $u->Username; "<br/>";
+								<?php $link = base_url() . index_page() . "/userpage/" . $u->UserId;
+								 echo "<a href='" . $link . "'>" . $u->Username; "<br/>";
 								echo "<h6>" . $u->Firstname . " " . $u->Lastname . "</h6>"; ?></a><br/>
 							<?php }
 						}
