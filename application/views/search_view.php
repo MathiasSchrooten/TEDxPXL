@@ -14,6 +14,7 @@ $this->load->view('header_view');
 						}
 						?>
 						/>
+						</br>
 						<input type="submit" value="Search"/>
 				</form>
 		</div>
