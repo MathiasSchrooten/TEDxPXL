@@ -378,6 +378,7 @@ nav a#pull {
 		float:left;
 		overflow:hidden;
 		background: #fff;
+
 	}
 	.portfolio-wrapper {
 		overflow: hidden;
@@ -804,6 +805,9 @@ nav a#pull {
 	color:#394346;
 	font-size:1.2em;
 }
+.search{
+  width:75% !important;
+}
 .contact-left input[type="text"],.contact-left textarea, .contact-left input[type="password"]{
 	border:1px solid #E0E0E0;
 	border-radius:0.3em;
@@ -813,6 +817,7 @@ nav a#pull {
 	color:#BBBBBB;
 	outline:none;
 }
+
 .contact-left-login input[type="text"],.contact-left-login textarea, .contact-left-login input[type="password"]{
 	border:1px solid #E0E0E0;
 	border-radius:0.3em;
@@ -1010,7 +1015,7 @@ nav a#pull {
 	left:12%;
 }
 .header {
-	min-height:500px;
+
 }
 .slide-text h1 {
 	font-size: 2.5em;
@@ -1067,7 +1072,7 @@ nav a#pull {
 	font-size: 0.85em;
 }
 .header {
-	min-height:450px;
+
 }
 .slide-text h1 {
 	font-size: 2em;
@@ -1161,7 +1166,7 @@ div.col-md-3.features-grid {
 }
 @media (max-width:768px){
 .header {
-	min-height:350px;
+
 }
 .logo {
 	margin-top: 1.5em;
@@ -1189,7 +1194,7 @@ div.col-md-3.features-grid {
 }
 @media (max-width:640px){
 .port-grid-text {
-	min-height: 151px;
+
 }
 .blog-post-time-line-connector span {
 	height: 700px;
@@ -1202,7 +1207,7 @@ div.col-md-3.features-grid {
 }
 @media (max-width:480px){
 .header {
-	min-height:300px;
+
 }
 .slide-text h1 {
 	font-size: 1.5em;
@@ -1300,7 +1305,7 @@ div.col-md-6.test-monial-time-line-left {
 	font-size: 1.2em;
 }
 .header {
-	min-height:220px;
+
 }
 .slide-text span {
 	font-size: 0.85em;
