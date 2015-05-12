@@ -1,4 +1,5 @@
     <?php
+		$this->load->view('header_view');
 	   if($this->session->userdata('logged_in'))
 	   {
 		 $session_data = $this->session->userdata('logged_in');
@@ -24,7 +25,7 @@
 				<div class="col-md 6 contact-left">
 					<form onSubmit="">
 							<p><strong> <?=$r->Username?>: </strong></p>
-							<img id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
+							<img id="profPic" class="img-rounded img-circle" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
 						</br>
 							<p><strong> E-mail: </strong></p>
 							<p> <?=$r->Email?> </p>
@@ -33,7 +34,7 @@
 							<p><strong>Last name: </strong></p>
 							<p> <?=$r->Lastname?> </p>
 							<p><strong>About yourself: </strong></p>
-							<p> TBA </p>
+							<p> <?=$r->About?> </p>
 					</form>
 				</div>
 				<?php endforeach;?>

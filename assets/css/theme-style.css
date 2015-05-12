@@ -12,10 +12,13 @@ body a{
 	cursor:pointer;
 }
 #profPic{
-height: 120px;
-width: 120px;
+	height: 120px;
+	width: 120px;
 }
-
+#borderP{
+	border-style: solid;
+    border-width: 1px;
+}
 /*----start-header----*/
 .header{
 	/*background:url(../images/header-bg.jpg) no-repeat 0px 0px;

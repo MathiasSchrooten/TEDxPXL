@@ -41,8 +41,8 @@
 					else
 					{
 						foreach ($results as $r):?>					
-							<tr>
-								<td><?=$r->Title?></td>
+							<tr class="contact-left"> 
+								<td> <input type="button" value="<?=$r->Title?>" onClick="window.location='<?php echo site_url('posts'); ?>/<?=$r->PostId?>'"/> </td>
 								<td><?=$r->Description?></td>
 								<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
 							</tr>

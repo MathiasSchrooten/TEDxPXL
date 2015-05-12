@@ -33,7 +33,7 @@
 							<form onSubmit="<php ?>" method="post" action="<?= site_url(array('Userpanel','update'))?>" enctype="multipart/form-data">
 							<p>Profilepicture: </p>
 							<a href="" onclick="document.getElementById('fileToUpload').click(); return false">
-								<img title="Click me to change" id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
+								<img title="Click me to change" class="img-rounded img-circle" id="profPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" />
 							</a>
 
 							<input style="visibility: hidden;" type="file" name="fileToUpload" id="fileToUpload">
