@@ -1,7 +1,7 @@
     <?php
 		$this->load->view('header_view');
 	?>
-  <!----start-feartures----->
+
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
@@ -23,9 +23,9 @@
 							<input type="submit" value="Login"/>
 					  </form>
 				</div>
-				
+
 				<?php echo validation_errors("<div class='alert alert-danger'>",'</div>'); ?>
-				
+
 			</div>
 		</div>
 		<!----//End-feartures----->
