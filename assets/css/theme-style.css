@@ -384,6 +384,7 @@ nav a#pull {
 		overflow: hidden;
 		position: relative !important;
 		cursor: pointer;
+    margin: 1em;
 	}
 	.portfolio img {
 		max-width:100%;
@@ -546,7 +547,7 @@ nav a#pull {
 }
 .port-grid-text p{
 	color: #FFF;
-	margin-top: 7em;
+	margin-top: 6em;
 }
 .arrow-icon1{
 	height: 23px;
@@ -1065,6 +1066,9 @@ nav a#pull {
 }
 .port-grid-text {
 	min-height: 161px;
+}
+.port-grid-text p{
+	margin-top:4.5em;
 }
 }
 @media (max-width:800px){
