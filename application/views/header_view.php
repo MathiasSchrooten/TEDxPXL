@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<script src="<?php echo base_url();?>assets/js/jquery.min.js"></script>
 		<!---- start-smoth-scrolling---->
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/move-top.js"></script>
-    <script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
+		<script type="text/javascript" src="<?php echo base_url();?>assets/js/bootstrap.js"></script>
 		<script type="text/javascript" src="<?php echo base_url();?>assets/js/easing.js"></script>
 		<!----<script type="text/javascript">
 					jQuery(document).ready(function($) {
@@ -68,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<ul class="top-nav">
 						<li class="<?php if(uri_string()==='home') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('home'); ?>" class="scroll">Home</a></li>
 						<li class="<?php if(uri_string()==='events' || $this->uri->segment(1)==='eventsdetail') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('events'); ?>" class="scroll">Events</a></li>
-						<li class="<?php if(uri_string()==='categories' || $this->uri->segment(1)==='forum') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('categories'); ?>" class="scroll">Forum</a></li>
+						<li class="<?php if(uri_string()==='categories' || $this->uri->segment(1)==='forum' || $this->uri->segment(1)==='posts') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('categories'); ?>" class="scroll">Forum</a></li>
             <li class="<?php if(uri_string()==='search') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('search'); ?>" class="scroll">Search</a></li>
 
 						<?php
