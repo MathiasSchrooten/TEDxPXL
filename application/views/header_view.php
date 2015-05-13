@@ -77,8 +77,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						?>
 							<li class="<?php if(uri_string()==='userpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('userpanel'); ?>" class="scroll">Userpanel</a></li>
 						<?php
-							}
+							} if ($this->session->userdata('logged_in'))
+							{
 						?>
+							<li class="<?php if(uri_string() ==='adminpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('adminpanel'); ?>" class="scroll">Adminpanel</a></li>
+							<?php 
+							}
+							?>
 
 						<li class="<?php if(uri_string()==='login') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php if($this->session->userdata('logged_in')) { echo site_url('home/logout'); } else { echo site_url('login'); }  ?>" class="scroll"><?php if($this->session->userdata('logged_in')) { echo 'Logout'; } else { echo 'Login'; } ?></a></li>
 					</ul>
