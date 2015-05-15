@@ -66,10 +66,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<!----start-top-nav---->
 				 <nav class="top-nav">
 					<ul class="top-nav">
-						<li class="<?php if(uri_string()==='home') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('home'); ?>" class="scroll">Home</a></li>
+						<li class="<?php if(uri_string()==='home' || $this->uri->segment(1)===null) { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('home'); ?>" class="scroll">Home</a></li>
 						<li class="<?php if(uri_string()==='events' || $this->uri->segment(1)==='eventsdetail') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('events'); ?>" class="scroll">Events</a></li>
 						<li class="<?php if(uri_string()==='categories' || $this->uri->segment(1)==='forum' || $this->uri->segment(1)==='posts') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('categories'); ?>" class="scroll">Forum</a></li>
-            <li class="<?php if(uri_string()==='search') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('search'); ?>" class="scroll">Search</a></li>
+						<li class="<?php if(uri_string()==='search') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('search'); ?>" class="scroll">Search</a></li>
 
 						<?php
 							if ($this->session->userdata('logged_in'))
@@ -80,7 +80,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							} if ($this->session->userdata('logged_in'))
 							{
 						?>
-							<li class="<?php if(uri_string() ==='adminpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('adminpanel'); ?>" class="scroll">Adminpanel</a></li>
+							<li class="<?php if($this->uri->segment(1)==='adminpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('adminpanel'); ?>" class="scroll">Adminpanel</a></li>
 							<?php 
 							}
 							?>

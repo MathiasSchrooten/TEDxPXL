@@ -12,8 +12,8 @@ body a{
 	cursor:pointer;
 }
 #profPic{
-	height: 120px;
-	width: 120px;
+	height: 150px;
+	width: 150px;
 }
 #borderP{
 	border-style: solid;
@@ -809,7 +809,7 @@ nav a#pull {
 .search{
   width:75% !important;
 }
-.contact-left input[type="text"],.contact-left textarea, .contact-left input[type="password"]{
+.contact-left input[type="text"],.contact-left textarea, .contact-left input[type="password"], .contact-left input[type="date"], .contact-left input[type="time"], .contact-left select {
 	border:1px solid #E0E0E0;
 	border-radius:0.3em;
 	padding:1em;
@@ -828,7 +828,7 @@ nav a#pull {
 	color:#BBBBBB;
 	outline:none;
 }
-.contact-left textarea{
+.contact-left textareat{
 	height:150px;
 	resize:none;
 }

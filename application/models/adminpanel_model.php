@@ -4,31 +4,44 @@ class Adminpanel_model extends CI_Model {
 		$query=$this->db->get('users');
 		return $query->result();
 	}
-	function getEvent() {
+	
+	function getUserById($UserId){
+		$this->db->Where('UserId', $UserId);
+		$query=$this->db->get('users');
+		return $query->result();
+	}
+	
+	function getEvents() {
 		$this->db->join('users', 'events.UserId = users.UserId');
 		$query=$this->db->get('events');
-		
 		
 		return $query->result();
 	}
 	
-
-	public function update($id,$data){
-		$this->db->where('id', $id);
-		$this->db->update('posts', $data);
+	function getEventById($EventId){
+		$this->db->Where('EventId', $EventId);
+		$query=$this->db->get('events');
+		return $query->result();
 	}
-
+	
 	public function deleteUser($UserId){
 	  $this->db->Where('UserId', $UserId);
 	  $this->db->delete('users');
 	}
 
-	public function insert($data){
-		$this->db->insert('posts', $data);
+	public function deleteEvent($EventId){
+	  $this->db->Where('EventId', $EventId);
+	  $this->db->delete('events');
 	}
+	
 	public function editUser($UserId,$data) {
 		$this->db->Where('UserId', $UserId);
-		$this->db->update('users', $data)
+		$this->db->update('users', $data);
+	}
+	
+	public function editEvent($EventId,$data) {
+		$this->db->Where('EventId', $EventId);
+		$this->db->update('events', $data);
 	}
 }
 ?>
