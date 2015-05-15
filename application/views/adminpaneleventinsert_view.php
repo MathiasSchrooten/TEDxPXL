@@ -27,29 +27,27 @@
 		<div id="fea" class="features">
 				<div class="container text-center">
 					<div class="head text-center">
-						<h3><span> </span> Edit event</h3>
+						<h3><span> </span> Create event</h3>
 
-						<p>Here you can change the details of a specific event</p>
+						<p>Here you can create a new event</p>
 					</div>
 					</br>
 					<div class="col-md 6 contact-left">
-						<?php foreach( $results as $r): ?>
-								<form onSubmit="<php ?>" method="post" action="<?= site_url(array('Adminpanel','editEvent'))?>" enctype="multipart/form-data">
+								<form onSubmit="<php ?>" method="post" action="<?= site_url(array('Adminpanel','createEvent'))?>" enctype="multipart/form-data">
 								<p>Image: </p>
 								<a href="" onclick="document.getElementById('fileToUpload').click(); return false">
-									<img title="Click me to change" class="img-rounded img-circle" id="profPic" src="<?php echo base_url();?>assets/events/<?=$r->Image?>" />
+									<img title="Click me to change" class="img-rounded img-circle" id="profPic" src="" />
 								</a>
 
 								<input style="visibility: hidden;" type="file" name="fileToUpload" id="fileToUpload">
 							</br>
-								<input class="textarea" type="hidden" size="40" name="EventId" id="EventId" value="<?=$r->EventId?>"/>
-								<input class="textarea" type="hidden" size="40" name="Image" id="Image" value="<?=$r->Image?>"/>
+								<input class="textarea" type="hidden" size="40" name="Image" id="Image" value=""/>
 							<br/>
 								<p>Title: </p>
-								<input class="textarea" maxlength="50" type="text" size="20" id="Title" name="Title" value="<?=$r->Title?>"/>
+								<input class="textarea" maxlength="50" type="text" size="20" id="Title" name="Title" value="" placeholder="Event title..." />
 							<br/>
 								<p>Description: </p>
-								<textarea id="About" maxlength="250" name="Description"><?=$r->Description?></textarea>
+								<textarea id="About" maxlength="250" name="Description" placeholder="Event description..."></textarea>
 								<p>Created by: </p>
 								<select class="textarea" name="UserId" id="UserId">
 									<?php foreach($users as $user): 
@@ -70,14 +68,13 @@
 								</select>
 							<br/>
 								<p>Date: </p>
-								<input class="date" type="date" maxlength="50" size="20" id="Date" name="Date" value="<?=$r->Date?>"/>
+								<input class="date" type="date" maxlength="50" size="20" id="Date" name="Date" value="<?php echo date('Y/m/d'); ?>"/>
 								<p>Time: </p>
-								<input class="time" type="time" maxlength="50" size="20" id="Time" name="Time" value="<?=$r->Time?>"/>
+								<input class="time" type="time" maxlength="50" size="20" id="Time" name="Time" value="<?php echo time('H:i:s'); ?>"/>
 							<br/>
 								<input type="button" value="Back" onClick="back();"/>    
-								<input type="submit" value="Save changes" name="action" onclick="if(document.getElementById('Image').value=!==''){getValue()}"/>                    
+								<input type="submit" value="Create event" name="action" onclick="if(document.getElementById('Image').value=!==''){getValue()}"/>                    
 						</form>
-					<?php endforeach; ?>
 					</div>
 				</div>
 			</div>

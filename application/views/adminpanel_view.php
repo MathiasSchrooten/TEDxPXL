@@ -35,9 +35,7 @@
 						  </tr>
 						</thead>
 						
-<tbody>
-
-							
+						<tbody>
 							<?php foreach ($users['users'] as $r):?>
 								<tr class="contact-left">
 									<td><img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /></td>
@@ -54,7 +52,7 @@
 						<thead>
 						  <tr>
 							<th>Events</th>
-							<th></th>
+							<th class="contact-left"><input type="button" value="Create" onClick="window.location='<?php echo site_url(array('adminpanel','insert')); ?>'"/></th>
 							<th></th>
 							<th></th>
 							<th></th>
