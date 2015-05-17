@@ -29,6 +29,7 @@
 					<tr>
 						<th>Title</th>
 						<th>Description</th>
+            <th>Comments</th>
 						<th>Posted by</th>
 					</tr>
 				<thead>
@@ -44,6 +45,7 @@
 							<tr class="contact-left">
 								<td> <input type="button" value="<?=$r->Title?>" onClick="window.location='<?php echo site_url('posts'); ?>/<?=$r->PostId?>'"/> </td>
 								<td><?=$r->Description?></td>
+                <td><?=$r->comCount?></td>
 								<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
 							</tr>
 				<?php endforeach; }?>

@@ -46,7 +46,8 @@
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
 							<p class="img-thumbnail"> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> : </br> <?=$r->Text?> </p>
-					</div>
+					  </form>
+          </div>
 				<?php endforeach; } else {?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
@@ -57,7 +58,7 @@
 				<hr>
 				<div class="col-md 6 contact-left text-center">
 					<form id="newComment" class="col-md 6 contact-left text-center" action="<?= site_url(array('posts','insert')) ?>" method="POST">
-						<strong>New comment: WERKT NOG NIET</strong>
+						<strong>New comment</strong>
 						<br/>
 						<textarea name="text" maxlength="250" form="newComment"></textarea>
 						<br/>
