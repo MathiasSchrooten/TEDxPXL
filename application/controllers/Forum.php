@@ -42,7 +42,20 @@ class Forum extends CI_Controller {
 			$this->load->model("forum_model");
 
 			$this->forum_model->insert($data);
-			redirect(base_url().index_page().'/forum/' . $data["categorieId"], 'refresh');
+
+
+
+			$catId = $this->uri->segment();
+
+			$this->load->database();
+			$this->load->model("forum_model");
+
+			$results=$this->forum_model->getPostsById($data["categorieId"]);
+
+			//$data=array('results'=>$results);
+
+			$this->load->view('forum_view',$results);
+		//	redirect(base_url().index_page().'/forum/' . $data["categorieId"], 'refresh');
 		}
 		else
 		{

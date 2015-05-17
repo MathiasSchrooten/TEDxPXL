@@ -18,6 +18,10 @@
 			function back(){
 				window.location='<?php echo site_url('forum'); ?>/<?php echo $catId ?>';
 			}
+      function getValue()
+  		{
+  			document.getElementById('description').value = document.getElementById('desc').value;
+  		}
 		</script>
 		<div id="port" class="portfolio portfolio-box">
 			<div class="head text-center">
@@ -41,13 +45,14 @@
 					<br/>
 					Description:
 					<br/>
-					<textarea name="description" form="newPost"></textarea>
-					<br/>
+					<textarea name="desc" id="desc" form="newPost"></textarea>
+					<input name="description" id="description" type="text"/>
+          <br/>
 					<input name="postedBy" type="hidden" value="1" />
 					<br/>
 					<input name="categorieId" type="hidden" value="<?php echo $catId ?>" />
 					<br/>
-					<input type="submit" name="action" value="Create post"/>
+					<input type="submit" name="action" value="Create post" onclick="getValue();"/>
 				</form>
       </div>
         <?php echo validation_errors("<div class='alert alert-danger'>",'</div>'); ?>

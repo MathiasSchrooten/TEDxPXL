@@ -1,3 +1,4 @@
+
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -20,12 +21,17 @@ class VerifyForum extends CI_Controller {
    if($this->form_validation->run() == FALSE)
    {
      //Field validation failed.  User redirected to login page
-     $this->load->view('foruminsert_view');
+     $data['catId'] = $this->uri->segment(3);
+     $this->load->view('foruminsert_view', $data);
+    // $this->load->view('foruminsert_view');
    }
    else
    {
      //Go to private area
+     //$data['catId'] = $this->uri->segment(3);
+     //echo site_url('forum')."/".$data['catId'];
      redirect('forum', 'refresh');
+
    }
 
  }

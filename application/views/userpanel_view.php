@@ -60,13 +60,13 @@
 							<p>Signature: </p>
 							<textarea id="Signature" maxlength="250" name="Signature"><?=$r->Signature?></textarea>
 						<br/>
-							<input type="submit" value="Save" name="action" onclick="getValue();"/>
-                                                        
+							<input type="submit" onclick="getValue();" value="Save" name="action" />
+
 					</form>
 				<?php endforeach; ?>
 				</div>
 			</div>
-                    
+
 		</div>
     </body>
 </html>

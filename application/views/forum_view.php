@@ -1,17 +1,17 @@
-    <?php 
+    <?php
 		$this->load->view('header_view');
 	?>
-	
+
 		<script>
 			function back(){
 				window.location='<?php echo site_url('categories'); ?>';
 			}
-			
+
 			function newPost(){
 				window.location='<?php echo site_url(array('forum','insert'))?>/<?php foreach ($results as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
 			}
 		</script>
-	
+
 		<div id="port" class="portfolio portfolio-box">
 			<div class="head text-center">
 				<h3><span> </span> <?php foreach ($results as $r): ?> <?=$r->Name?> <?php break; endforeach; ?></h3>
@@ -29,7 +29,7 @@
 					<tr>
 						<th>Title</th>
 						<th>Description</th>
-						<th>Posted by</th>			
+						<th>Posted by</th>
 					</tr>
 				<thead>
 
@@ -37,19 +37,18 @@
 						<tr>
 							<td>There have been no posts yet</td>
 						</tr>
-				<?php } 
+				<?php }
 					else
 					{
-						foreach ($results as $r):?>					
-							<tr class="contact-left"> 
+						foreach ($results as $r):?>
+							<tr class="contact-left">
 								<td> <input type="button" value="<?=$r->Title?>" onClick="window.location='<?php echo site_url('posts'); ?>/<?=$r->PostId?>'"/> </td>
 								<td><?=$r->Description?></td>
 								<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
 							</tr>
-				<?php endforeach; }?>	
+				<?php endforeach; }?>
 				</table>
 			</div>
 		</div>
     </body>
 </html>
-
