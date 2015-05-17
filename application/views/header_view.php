@@ -81,12 +81,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							{
 						?>
 							<li class="<?php if($this->uri->segment(1)==='adminpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('adminpanel'); ?>" class="scroll">Adminpanel</a></li>
-							<?php 
+							<?php
 							}
-							?>
+              ?>
+
+
 
 						<li class="<?php if(uri_string()==='login') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php if($this->session->userdata('logged_in')) { echo site_url('home/logout'); } else { echo site_url('login'); }  ?>" class="scroll"><?php if($this->session->userdata('logged_in')) { echo 'Logout'; } else { echo 'Login'; } ?></a></li>
-					</ul>
+            <?php
+            if(!isset($_SESSION['logged_in']) || (isset($_SESION['logged_in']) && $_SESSION['logged_in'] == 0)){
+              ?>
+              <li class="<?php if(uri_string()==='register') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('register'); ?>" class="scroll">Register</a></li>
+            <?php
+          }?>
+          </ul>
 					<a href="#" id="pull"><img src="<?php echo base_url();?>assets/images/nav-icon.png" title="menu" /></a>
 				</nav>
 				<div class="clearfix"> </div>

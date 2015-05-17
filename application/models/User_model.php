@@ -24,5 +24,10 @@ class User_model extends CI_Model {
 			OR firstname LIKE '%$search%' OR lastname LIKE '%$search%' OR email LIKE '%$search%'");
 		return $query->result();
 	}
+
+	public function insert($data){
+		$this->db->insert('users', $data);
+		return $this->db->insert_id();
+	}
 }
 ?>
