@@ -22,6 +22,9 @@ class VerifyForum extends CI_Controller {
    {
      //Field validation failed.  User redirected to login page
      $data['catId'] = $this->uri->segment(3);
+     if(isset($_POST["categorieId"])){
+       $data['catId'] = $_POST["categorieId"];
+     }
      $this->load->view('foruminsert_view', $data);
     // $this->load->view('foruminsert_view');
    }
@@ -30,7 +33,15 @@ class VerifyForum extends CI_Controller {
      //Go to private area
      //$data['catId'] = $this->uri->segment(3);
      //echo site_url('forum')."/".$data['catId'];
-     redirect('forum', 'refresh');
+
+     $data=[];
+     $data["title"]=$_POST["title"];
+     $data["description"]=$_POST["description"];
+     $data["userId"]=$_POST["postedBy"];
+     $data["categorieId"]=$_POST["categorieId"];
+     $this->load->model("forum_model");
+     $this->forum_model->insert($data);
+     redirect('forum/' . $_POST["categorieId"] , 'refresh');
 
    }
 

@@ -3,6 +3,7 @@
 	   {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
+     $data['id'] = $session_data['id'];
 		 //$this->load->view('home_view', $data);
 	   }
 	   else
@@ -46,11 +47,11 @@
 					Description:
 					<br/>
 					<textarea name="desc" id="desc" form="newPost"></textarea>
-					<input name="description" id="description" type="text"/>
+					<input name="description" id="description" type="hidden"/>
           <br/>
-					<input name="postedBy" type="hidden" value="1" />
+					<input name="postedBy" type="hidden" value="<?php echo $data['id']; ?>" />
 					<br/>
-					<input name="categorieId" type="hidden" value="<?php echo $catId ?>" />
+					<input name="categorieId" type="hidden" value="<?php echo $catId; ?>" />
 					<br/>
 					<input type="submit" name="action" value="Create post" onclick="getValue();"/>
 				</form>

@@ -18,6 +18,7 @@ class Forum extends CI_Controller {
 
 	public function getForum()
 	{
+		if($this->uri->segment(2) !== '0'){
 		$catId = $this->uri->segment(2);
 
 		$this->load->database();
@@ -29,38 +30,14 @@ class Forum extends CI_Controller {
 
 		$this->load->view('forum_view',$data);
 	}
+	else {
+		redirect('categories','refresh');
+	}
+	}
 
 	public function insert(){
 		$this->load->helper(array('form'));
-		if (isset($_POST["action"])){ // && $_POST["action"]=="insert"
-			$data=[];
-			$data["title"]=$_POST["title"];
-			$data["description"]=$_POST["description"];
-			$data["userId"]=$_POST["postedBy"];
-			$data["categorieId"]=$_POST["categorieId"];
-
-			$this->load->model("forum_model");
-
-			$this->forum_model->insert($data);
-
-
-
-			$catId = $this->uri->segment();
-
-			$this->load->database();
-			$this->load->model("forum_model");
-
-			$results=$this->forum_model->getPostsById($data["categorieId"]);
-
-			//$data=array('results'=>$results);
-
-			$this->load->view('forum_view',$results);
-		//	redirect(base_url().index_page().'/forum/' . $data["categorieId"], 'refresh');
-		}
-		else
-		{
-			$data['catId'] = $this->uri->segment(3);
-			$this->load->view('foruminsert_view', $data);
-		}
+		$data['catId'] = $this->uri->segment(3);
+		$this->load->view('foruminsert_view', $data);
 	}
 }

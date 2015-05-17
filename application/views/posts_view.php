@@ -14,13 +14,13 @@
 	?>
 		<script>
 			function back(){
-				window.location='<?php echo site_url('forum'); ?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->PostId?><?php break; endforeach; ?>';
+				window.location='<?php echo site_url('forum'); ?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
 			}
 			function newComment(){
 				window.location='<?php echo site_url(array('posts','insert'))?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->PostId?><?php break; endforeach; ?>';
 			}
 		</script>
-		
+
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
