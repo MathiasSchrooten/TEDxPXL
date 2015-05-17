@@ -60,7 +60,12 @@
 							<p>Signature: </p>
 							<textarea id="Signature" maxlength="250" name="Signature"><?=$r->Signature?></textarea>
 						<br/>
+
 							<input type="submit" onclick="getValue();" value="Save" name="action" />
+
+
+							<input type="submit" value="Save changes" name="action" onclick="if(document.getElementById('Picture').value=!==''){getValue()}"/>
+
 
 					</form>
 				<?php endforeach; ?>

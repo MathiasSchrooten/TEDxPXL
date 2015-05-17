@@ -12,8 +12,8 @@ body a{
 	cursor:pointer;
 }
 #profPic{
-	height: 120px;
-	width: 120px;
+	height: 150px;
+	width: 150px;
 }
 #borderP{
 	border-style: solid;
@@ -32,7 +32,7 @@ body a{
 /*----navbar-nav----*/
 .top-nav ul li a{
 	color: #394346;
-	padding: 0.1em 1em;
+	padding: 0.1em 0.5em;
 	font-size: 1.2em;
 	font-weight: 500;
 }
@@ -68,7 +68,7 @@ body a{
 nav ul {
 	padding: 0;
 	float: right;
-	margin: 2.2em 0;
+	margin: 1.8em 0;
 }
 nav li {
 	display: inline;
@@ -384,6 +384,7 @@ nav a#pull {
 		overflow: hidden;
 		position: relative !important;
 		cursor: pointer;
+    margin: 1em;
 	}
 	.portfolio img {
 		max-width:100%;
@@ -546,7 +547,7 @@ nav a#pull {
 }
 .port-grid-text p{
 	color: #FFF;
-	margin-top: 7em;
+	margin-top: 6em;
 }
 .arrow-icon1{
 	height: 23px;
@@ -808,7 +809,7 @@ nav a#pull {
 .search{
   width:75% !important;
 }
-.contact-left input[type="text"],.contact-left textarea, .contact-left input[type="password"]{
+.contact-left input[type="text"],.contact-left textarea, .contact-left input[type="password"], .contact-left input[type="date"], .contact-left input[type="time"], .contact-left select {
 	border:1px solid #E0E0E0;
 	border-radius:0.3em;
 	padding:1em;
@@ -827,7 +828,7 @@ nav a#pull {
 	color:#BBBBBB;
 	outline:none;
 }
-.contact-left textarea{
+.contact-left textareat{
 	height:150px;
 	resize:none;
 }
@@ -1065,6 +1066,9 @@ nav a#pull {
 }
 .port-grid-text {
 	min-height: 161px;
+}
+.port-grid-text p{
+	margin-top:4.5em;
 }
 }
 @media (max-width:800px){

@@ -15,7 +15,8 @@ class Posts extends CI_Controller {
 		
 		$data["posts"]=array('posts'=>$results1);
 		$data["comments"]=array('comments'=>$results2);
-
+		$data['postId'] = $postId;
+		
 		$this->load->view('posts_view',$data);
 
 	}
@@ -36,7 +37,7 @@ class Posts extends CI_Controller {
 		else
 		{
 			$data['postId'] = $this->uri->segment(3);
-			$this->load->view('postsinsert_view', $data);
+			$this->load->view('posts_view', $data);
 		}
 	}
 }

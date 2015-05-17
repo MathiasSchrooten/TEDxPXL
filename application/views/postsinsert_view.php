@@ -35,7 +35,7 @@
 		<div id="port" class="portfolio-main">
 			<div class="col-md 6 contact-left text-center">
 				<form id="newComment" class="col-md 6 contact-left text-center" action="<?= site_url(array('posts','insert')) ?>" method="POST">
-					Text:
+					<strong><p>New comment:</p></strong>
 					<br/>
 					<textarea name="text" maxlength="250" form="newComment"></textarea>
 					<br/>
@@ -45,8 +45,7 @@
 					<br/>
 					<input type="submit" name="action" value="Create Comment"/>
 				</form>
-		  </div>
-
+			</div>
 		</div>
     </body>
 </html>
