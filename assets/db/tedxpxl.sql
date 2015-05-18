@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Machine: 127.0.0.1
--- Gegenereerd op: 12 mei 2015 om 12:05
+-- Gegenereerd op: 18 mei 2015 om 14:51
 -- Serverversie: 5.6.21
 -- PHP-versie: 5.6.3
 
@@ -52,7 +52,15 @@ CREATE TABLE IF NOT EXISTS `comments` (
   `Text` varchar(250) NOT NULL,
   `PostId` int(11) NOT NULL,
   `UserId` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+
+--
+-- Gegevens worden geëxporteerd voor tabel `comments`
+--
+
+INSERT INTO `comments` (`CommentId`, `Text`, `PostId`, `UserId`) VALUES
+(1, 'Test1', 1, 1),
+(2, 'test', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -67,18 +75,18 @@ CREATE TABLE IF NOT EXISTS `events` (
   `Date` date NOT NULL,
   `Time` time NOT NULL,
   `UserId` int(11) NOT NULL,
-  `Image` varchar(100) NOT NULL
+  `Image` varchar(100) NOT NULL,
+  `Place` varchar(100) DEFAULT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `events`
 --
 
-INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`) VALUES
-(1, 'Dikke Fuif', 'Gratis bier, tequila. Be there', '2015-04-22', '12:00:00', 1, 'p8.jpg'),
-(2, 'Les wiskunde', 'Dit is de wiskunde les van het jaar! Mevrouw Tans gaat ons alle hoeken van de kamer laten zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg'),
-(3, 'Koproltornooi', 'Rol rol rollen maar', '2015-04-24', '12:40:00', 1, 'p1.jpg'),
-(4, 'Buhfest', 'You know.. just buh', '2015-04-14', '06:40:00', 1, 'p7.jpg');
+INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`, `Place`) VALUES
+(1, 'Internationale dag', 'Gratis bier, tequila. Be there', '2015-05-16', '13:00:00', 3, 'p30.jpg', 'khlim+hasselt'),
+(2, 'Les wiskunde', 'Dit is de wiskunde les van het jaar! Mevrouw Tans gaat ons alle hoeken van de kamer laten zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg', 'PXL'),
+(3, 'Koproltornooi', 'Rol rol rollen maar', '2015-04-24', '12:40:00', 4, 'p1.jpg', 'Amentstraat+11,+Stramproy');
 
 -- --------------------------------------------------------
 
@@ -122,19 +130,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `Picture` varchar(50) NOT NULL,
   `Signature` varchar(250) NOT NULL,
   `About` varchar(250) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `users`
 --
 
 INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`, `Signature`, `About`) VALUES
-(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 2, 'Profiel.jpg', ' Loool gfhgh', 'test'),
+(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 1, 'Profiel.jpg', 'I am a cool guy!', 'I am a programmer'),
 (2, 'DylanGomes', '216692', 'dylangomes@live.be', 'Dylan', 'Gomes', 0, '', '', ''),
 (3, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', '', ''),
-(4, 'MathiasS', '123', 'mathiass@gmail.com', 'Mathias', 'Schrooten', 0, '', '', ''),
-(5, 'TomV', '123', 'tomv@gmail.com', 'Tom', 'Veuskens', 0, '', '', ''),
-(6, 'JonasL', '123', 'jonasl@gmail.com', 'Jonas', 'Lodewyckx', 0, '', '', '');
+(4, 'MathiasS', '123', 'mathiass@gmail.com', 'Mathias', 'Schrooten', 0, '', '', '');
 
 --
 -- Indexen voor geëxporteerde tabellen
@@ -183,7 +189,7 @@ MODIFY `CategorieId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT voor een tabel `comments`
 --
 ALTER TABLE `comments`
-MODIFY `CommentId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
+MODIFY `CommentId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
 --
 -- AUTO_INCREMENT voor een tabel `events`
 --
@@ -198,7 +204,7 @@ MODIFY `PostId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
 -- AUTO_INCREMENT voor een tabel `users`
 --
 ALTER TABLE `users`
-MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=8;
+MODIFY `UserId` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
