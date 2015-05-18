@@ -1,9 +1,15 @@
 <?php
 	 if($this->session->userdata('logged_in'))
 	 {
-	 $session_data = $this->session->userdata('logged_in');
-	 $data['username'] = $session_data['username'];
-	 //$this->load->view('home_view', $data);
+		$session_data = $this->session->userdata('logged_in');
+		$data['username'] = $session_data['username'];
+		$data['role'] = $session_data['role'];
+		$data['id'] = $session_data['id'];
+		
+		if($data['role']==="0")
+		{
+			redirect('home', 'refresh');
+		}
 	 }
 	 else
 	 {

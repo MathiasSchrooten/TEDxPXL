@@ -43,29 +43,25 @@
 							<input class="textarea" type="hidden" size="40" name="Role" id="Role" value="<?=$r->Role?>"/>
 							<input class="textarea" type="hidden" size="40" name="Picture" id="Picture" value="<?=$r->Picture?>"/>
 							<p> E-mail:</p>
-							<input class="textarea" maxlength="150" type="text" size="40" id="Email" name="Email" value="<?=$r->Email?>"/>
+							<input class="textarea" placeholder="E-mail..." maxlength="150" type="text" size="40" id="Email" name="Email" value="<?=$r->Email?>"/>
 						<br/>
 							<p>Password: </p>
-							<input class="password" maxlength="50" type="password" size="20" id="Password" name="Password" value="<?=$r->Password?>"/>
+							<input class="password"  placeholder="Password..." maxlength="50" type="password" size="20" id="Password" name="Password" value="<?=$r->Password?>"/>
 						<br/>
 							<p>Confirm password: </p>
-							<input class="password" maxlength="50" type="password" size="20" id="Password2" name="Password2" value="<?=$r->Password?>"/>
+							<input class="password"  placeholder="Confirm passowrd..." maxlength="50" type="password" size="20" id="Password2" name="Password2" value="<?=$r->Password?>"/>
 						<br/>
 							<p>First name: </p>
-							<input class="textarea" type="text" maxlength="50" size="20" id="Firstname" name="Firstname" value="<?=$r->Firstname?>"/>
+							<input class="textarea" type="text"  placeholder="First name..." maxlength="50" size="20" id="Firstname" name="Firstname" value="<?=$r->Firstname?>"/>
 							<p>Last name: </p>
-							<input class=" textarea" type="text" maxlength="50" size="20" id="Lastname" name="Lastname" value="<?=$r->Lastname?>"/>
+							<input class=" textarea" type="text"  placeholder="Last name..." maxlength="50" size="20" id="Lastname" name="Lastname" value="<?=$r->Lastname?>"/>
 							<p>About yourself: </p>
-							<textarea id="About" maxlength="250" name="About"><?=$r->About?></textarea>
+							<textarea id="About" maxlength="250"  placeholder="About yourself..." name="About"><?=$r->About?></textarea>
 							<p>Signature: </p>
-							<textarea id="Signature" maxlength="250" name="Signature"><?=$r->Signature?></textarea>
+							<textarea id="Signature"  placeholder="Signature..." maxlength="250" name="Signature"><?=$r->Signature?></textarea>
 						<br/>
 
-							<input type="submit" onclick="getValue();" value="Save" name="action" />
-
-
 							<input type="submit" value="Save changes" name="action" onclick="if(document.getElementById('Picture').value=!==''){getValue()}"/>
-
 
 					</form>
 				<?php endforeach; ?>

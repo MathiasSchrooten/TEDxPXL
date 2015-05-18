@@ -25,7 +25,8 @@ class VerifyLogin extends CI_Controller {
    else
    {
      //Go to private area
-     redirect('home', 'refresh');
+	 $page = $this->session->userdata('currentPage');
+     redirect($page, 'refresh');
    }
 
  }
@@ -45,7 +46,8 @@ class VerifyLogin extends CI_Controller {
      {
        $sess_array = array(
          'id' => $row->UserId,
-         'username' => $row->Username
+         'username' => $row->Username,
+		 'role' => $row->Role
        );
        $this->session->set_userdata('logged_in', $sess_array);
      }

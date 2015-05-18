@@ -1,5 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+
+	if($this->session->userdata('logged_in')) { 
+		$session_data = $this->session->userdata('logged_in');
+		$data['username'] = $session_data['username'];
+		$data['role'] = $session_data['role'];
+		$data['id'] = $session_data['id'];
+	}	
 ?><!DOCTYPE html>
 <html>
     <head>
@@ -77,28 +84,30 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						?>
 							<li class="<?php if(uri_string()==='userpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('userpanel'); ?>" class="scroll">Userpanel</a></li>
 						<?php
-							} if ($this->session->userdata('logged_in'))
+							} if ($this->session->userdata('logged_in') && $data['role']==="1")
 							{
 						?>
 							<li class="<?php if($this->uri->segment(1)==='adminpanel') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('adminpanel'); ?>" class="scroll">Adminpanel</a></li>
 							<?php
 							}
-              ?>
-
-
+						?>
 
 						<li class="<?php if(uri_string()==='login') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php if($this->session->userdata('logged_in')) { echo site_url('home/logout'); } else { echo site_url('login'); }  ?>" class="scroll"><?php if($this->session->userdata('logged_in')) { echo 'Logout'; } else { echo 'Login'; } ?></a></li>
-            <?php
-            if(!isset($_SESSION['logged_in']) || (isset($_SESION['logged_in']) && $_SESSION['logged_in'] == 0)){
-              ?>
-              <li class="<?php if(uri_string()==='register') { ?> active <?php } else {?> page-scroll <?php }?>"><a href="<?php echo site_url('register'); ?>" class="scroll">Register</a></li>
-            <?php
-          }?>
-          </ul>
+					</ul>
 					<a href="#" id="pull"><img src="<?php echo base_url();?>assets/images/nav-icon.png" title="menu" /></a>
 				</nav>
 				<div class="clearfix"> </div>
 				<!----//End-top-nav---->
+				<?php 
+					if(!(uri_string()==='login')) { 
+						$this->session->set_userdata('currentPage', uri_string()); 
+					} 
+					
+					if($this->session->userdata('logged_in')) { 						
+						echo "<p>Hello, <strong><a href=" . site_url('userpage') . "/" . $data['id'] . ">" . $data['username'] . "</a></strong>, you are"; 
+						if($data['role']==="1"){ echo " an <strong>admin</strong></p>"; } else { echo " a <strong>member</strong></p>"; }
+					}
+				?>
 			</div>
 		</div>
 		<!----//End-header---->

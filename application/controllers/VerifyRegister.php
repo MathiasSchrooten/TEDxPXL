@@ -14,6 +14,7 @@ class VerifyRegister extends CI_Controller {
    //This method will have the credentials validation
    $this->load->library('form_validation');
 
+   $this->form_validation->set_rules('email', 'Email', 'trim|required');
    $this->form_validation->set_rules('username', 'Username', 'trim|required');
    $this->form_validation->set_rules('password', 'Password', 'trim|required|callback_insert_database');
 

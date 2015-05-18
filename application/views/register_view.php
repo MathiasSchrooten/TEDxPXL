@@ -1,6 +1,13 @@
 <?php
 $this->load->view('header_view');
 ?>
+
+<script>
+	function back(){
+		window.location='<?php echo site_url('login'); ?>';
+	}
+</script>
+
 <div id="fea" class="features">
   <div class="container text-center">
     <div class="head text-center">
@@ -25,6 +32,7 @@ $this->load->view('header_view');
           <br/>
           <!--<input type="password" size="20" id="password2" name="password1"/>-->
           <br/>
+		  <input type="button" value="Back" onClick="back();"/>
           <input type="submit" value="Register"/>
         </form>
     </div>

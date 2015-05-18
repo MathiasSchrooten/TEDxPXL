@@ -2,6 +2,13 @@
 		$this->load->view('header_view');
 	?>
 
+	<script>
+		function Register(){
+			window.location='<?php echo site_url('register'); ?>';
+		}
+		
+	</script>
+	
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
@@ -21,6 +28,14 @@
 							<input type="password" size="20" id="password" name="password"/>
 							<br/>
 							<input type="submit" value="Login"/>
+							
+							<?php
+							if(!isset($_SESSION['logged_in'])){
+							  ?>
+							  <input type="button" value="Register" onClick="Register()"/>
+							<?php
+						  }?>
+							
 					  </form>
 				</div>
 

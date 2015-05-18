@@ -16,9 +16,6 @@
 			function back(){
 				window.location='<?php echo site_url('forum'); ?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
 			}
-			function newComment(){
-				window.location='<?php echo site_url(array('posts','insert'))?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->PostId?><?php break; endforeach; ?>';
-			}
 		</script>
 
 		<div id="fea" class="features">
@@ -30,7 +27,6 @@
 					</br>
 				<form class="col-md 6 contact-left text-center">
 					<input type="button" value="Back" onClick="back();"/>
-					<input type="button" value="New comment" onClick="newComment()"/>
 				</form>
 				</div>
 				</br>
@@ -42,10 +38,15 @@
 						</form>
 					</div>
 				<?php break; endforeach;?>
+				<hr>
+				
 				<?php if (count($comments["comments"]) > 0) { foreach ($comments["comments"] as $r):?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
-							<p class="img-thumbnail"> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> : </br> <?=$r->Text?> </p>
+							<p class="img-thumbnail"> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> : 
+								</br> <?=$r->Text?> 
+							</p>
+							
 					  </form>
           </div>
 				<?php endforeach; } else {?>
