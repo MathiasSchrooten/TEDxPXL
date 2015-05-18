@@ -22,6 +22,17 @@
 			function back(){
 				window.location='<?php echo site_url('adminpanel'); ?>';
 			}
+			function GenMap(){
+				if (document.getElementById('Place').value !="")
+				{
+					document.getElementById("map").innerHTML = "<iframe width='600' height='450' frameborder='0' style='border:0' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBFYwVXpe3XZwBsx4-UxIe08FDddqZsUzY&q=" + document.getElementById('Place').value + "'></iframe>";
+			
+				}
+				else
+				{
+					document.getElementById("map").innerHTML = "";
+				}
+			}
 		</script>
 
 		<div id="fea" class="features">
@@ -67,6 +78,9 @@
 									?>
 								</select>
 							<br/>
+								<p>Location: </p>
+								<input placeholder="Type a place, adress or name (just like as in Google Maps)" maxlength="100" type="text" size="20" id="Place" onKeyUp="GenMap()" name="Place" value=""/>
+								<div id="map"> </div>
 								<p>Date: </p>
 								<input class="date" type="date" maxlength="50" size="20" id="Date" name="Date" value="<?php echo date('Y/m/d'); ?>"/>
 								<p>Time: </p>

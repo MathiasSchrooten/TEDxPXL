@@ -26,6 +26,7 @@
 					<div class="col-md-6 blog-time-line-left" >
 						<img id="foto" src="<?php echo base_url();?>assets/events/<?=$r->Image?>" title="<?=$r->Title?>" />
 					</div>
+					
 					<div class="col-md-6 blog-time-line-right">
 						<div class="blog-post">
 							<div class="col-md-8 blog-post-info">
@@ -39,16 +40,16 @@
 								<div class="clearfix"> </div>
 								<h3 class="post-head"><?=$r->Title?></h3>
 								<p><?=$r->Description?></p>
-							</div>
-							<div class="clearfix"> </div>
+								</br>
+								<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFYwVXpe3XZwBsx4-UxIe08FDddqZsUzY&q=<?=$r->Place?>"></iframe>
+								
+							</div>							
 						</div>
-						<div class="clearfix"> </div>
 					</div>
-					<div class="clearfix"> </div>
-					<form id="back" class="col-md 6 contact-left text-center" action="<?php echo site_url('events'); ?>">
-						<input type="submit" value="Back"/>
-					</form>
 				</div>
+				<form id="back" class="col-md 6 contact-left text-center" action="<?php echo site_url('events'); ?>">
+					<input type="submit" value="Back"/>
+				</form>
 			<?php endforeach;?>
 		</div>
     </body>

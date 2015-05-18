@@ -104,7 +104,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					} 
 					
 					if($this->session->userdata('logged_in')) { 						
-						echo "<p>Hello, <strong><a href=" . site_url('userpage') . "/" . $data['id'] . ">" . $data['username'] . "</a></strong>, you are"; 
+						echo "<p>Hello <strong><a href=" . site_url('userpage') . "/" . $data['id'] . ">" . $data['username'] . "</a></strong> you are"; 
 						if($data['role']==="1"){ echo " an <strong>admin</strong></p>"; } else { echo " a <strong>member</strong></p>"; }
 					}
 				?>

@@ -12,7 +12,11 @@ $this->load->view('header_view');
   <div class="container text-center">
     <div class="head text-center">
       <h3><span> </span> Register</h3>
-      <p>Please register to access member features</p>
+      <p>
+		Please register to access member features
+		</br>
+		This includes viewing event details, access to all the forum's functions and your own userpanel!
+	  </p>
     </div>
     </br>
       <?php echo form_open('verifyregister'); ?>

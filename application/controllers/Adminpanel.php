@@ -238,6 +238,7 @@ class Adminpanel extends CI_Controller {
 			$data["Date"]=$_POST["Date"];
 			$data["Time"]=$_POST["Time"];
 			$data["UserId"]=$_POST["UserId"];
+			$data["Place"]=$place =  str_replace(" ", "+", $_POST["Place"]);
 			
 			$this->load->model("adminpanel_model");
 			
@@ -333,6 +334,7 @@ class Adminpanel extends CI_Controller {
 			$data["Date"]=$_POST["Date"];
 			$data["Time"]=$_POST["Time"];
 			$data["UserId"]=$_POST["UserId"];
+			$data["Place"]=$place =  str_replace(" ", "+", $_POST["Place"]);
 			
 			$this->load->model("adminpanel_model");
 			

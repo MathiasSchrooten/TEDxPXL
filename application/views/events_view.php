@@ -62,7 +62,7 @@
 										<a href="<?php echo site_url('eventsdetail'); ?>/<?=$r->EventId?>" class="b-link-stripe b-animate-go  thickbox">
 											<img src="<?php echo base_url();?>assets/events/<?=$r->Image?>" />
 											<div class="b-wrapper">
-												<h2 class="b-animate b-from-left    b-delay03 "> <?=$r->Date?> at <?=$r->Time?> </br> </br> <?=$r->Description?></h2>
+												<h2 class="b-animate b-from-left    b-delay03 "> <?=$r->Description?></h2>
 											</div>
 										</a>
 									</div>
