@@ -23,8 +23,6 @@
 				<div class="head text-center">
 					<h3><span> </span> <?php foreach ($posts["posts"] as $r): ?><?=$r->Title?><?php break; endforeach; ?></h3>
 
-					<p>Here is the post you selected</p>
-					</br>
 				<form class="col-md 6 contact-left text-center">
 					<input type="button" value="Back" onClick="back();"/>
 				</form>
@@ -33,22 +31,21 @@
 				<?php foreach ($posts["posts"] as $r):?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
-							<p><strong> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong></p>
+							<p><img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /><strong> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong></p>
 							<p> <?=$r->Description?> </p>
 						</form>
 					</div>
 				<?php break; endforeach;?>
-				<hr>
 				
 				<?php if (count($comments["comments"]) > 0) { foreach ($comments["comments"] as $r):?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
-							<p class="img-thumbnail"> <a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> : 
+							<p class="img-thumbnail"><img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /> <strong><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong> 
 								</br> <?=$r->Text?> 
 							</p>
 							
 					  </form>
-          </div>
+					</div>
 				<?php endforeach; } else {?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">

@@ -109,8 +109,8 @@ $this->load->view('header_view');
 					<?php
 						if(isset($us) and sizeof($us) > 0){
 							foreach($us as $u){?>
-								<?php $link = base_url() . index_page() . "/userpage/" . $u->UserId;
-								 echo "<a href='" . $link . "'>" . $u->Username; "<br/>";
+								<?php $link = base_url() . index_page() . "/userpage/" . $u->UserId; ?>
+								<img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$u->Picture?>" /> <?php echo "<a href='" . $link . "'>" . $u->Username; "<br/>";
 								echo "<h6>" . $u->Firstname . " " . $u->Lastname . "</h6>"; ?></a><br/>
 							<?php }
 						}

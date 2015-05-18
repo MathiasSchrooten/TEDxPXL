@@ -6,6 +6,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		$data['username'] = $session_data['username'];
 		$data['role'] = $session_data['role'];
 		$data['id'] = $session_data['id'];
+		$data['picture'] = $session_data['picture'];
 	}	
 ?><!DOCTYPE html>
 <html>
@@ -67,7 +68,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 			<div class="container">
 				<!---- start-logo---->
 				<div class="logo">
-					<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>assets/images/TEDxPXL.jpg" width="400" height="120" title="Mabur" /></a>
+					<a href="<?php echo base_url(); ?>"><img src="<?php echo base_url();?>assets/images/TEDxPXL.jpg" width="400" height="120" title="TEDxPXL}" /></a>
 				</div>
 				<!---- //End-logo---->
 				<!----start-top-nav---->
@@ -103,8 +104,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						$this->session->set_userdata('currentPage', uri_string()); 
 					} 
 					
-					if($this->session->userdata('logged_in')) { 						
-						echo "<p>Hello <strong><a href=" . site_url('userpage') . "/" . $data['id'] . ">" . $data['username'] . "</a></strong> you are"; 
+					if($this->session->userdata('logged_in')) { 	
+					?>
+						<p><img height='45' width='45' class='img-rounded img-circle' id='userPic' src="<?php echo base_url()?>assets/users/<?php echo $data['picture']?>" /> Hello <strong><a href="<?php echo site_url('userpage') ?>/<?php echo $data['id'] ?>"> <?php echo $data['username'] ?> </a></strong> you are
+					<?php
 						if($data['role']==="1"){ echo " an <strong>admin</strong></p>"; } else { echo " a <strong>member</strong></p>"; }
 					}
 				?>
