@@ -9,12 +9,11 @@ class Posts_model extends CI_Model {
 	function getPostsById($id)
 	{
 		$this->db->join('users', 'posts.UserId = users.UserId');
-		//$this->db->join('comments', 'comments.PostId = posts.PostId', 'right');
 		$this->db->where('posts.PostId', $id);
 		$query=$this->db->get('posts');
 		return $query->result();
 	}
-	
+
 	function getCommentsById($id)
 	{
 		$this->db->join('users', 'comments.UserId = users.UserId');
@@ -22,7 +21,7 @@ class Posts_model extends CI_Model {
 		$query=$this->db->get('comments');
 		return $query->result();
 	}
-	
+
 	function searchPosts($search){
 		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%$search%' or description LIKE '%$search%'");
 		return $query->result();

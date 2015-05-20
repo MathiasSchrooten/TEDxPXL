@@ -3,10 +3,12 @@ $this->load->view('header_view');
 ?>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.js"></script>
 	<div id="fea" class="features" >
+
 		<div class="container text-center">
 			<div class="head text-center">
 				<h3><span> </span> Search</h3>
 			</div>
+
 				<form class="col-md 6 contact-left text-center" id="searching" method="get" action="">
 						<input type="text" size="20" id="search" name="search" class="search"
 						<?php if(isset($_GET['search'])){
@@ -17,7 +19,10 @@ $this->load->view('header_view');
 						</br>
 						<input  type="submit" value="Search"/>
 				</form>
+
 		</div>
+
+
 		<div class="container text-center">
 			<?php if(isset($_GET["search"])){ ?>
 			<ul class="nav nav-pills nav-justified" role="tablist" id="searchTab">
@@ -42,6 +47,7 @@ $this->load->view('header_view');
 												Users <span class="badge"><?php echo sizeof($us); ?></span></a></li>
 					<?php } ?>
 				</ul>
+
 			<div class="tab-content">
 				<div role="tabpanel" class="tab-pane fade in active" id="ca">
 					<br/><br/>
@@ -57,6 +63,7 @@ $this->load->view('header_view');
 							}
 					?>
 				</div>
+
 				<div role="tabpanel" class="tab-pane fade" id="po">
 					<br/><br/>
 					<?php
@@ -72,6 +79,7 @@ $this->load->view('header_view');
 						}
 					?>
 				</div>
+
 				<?php if ($this->session->userdata('logged_in')){ ?>
 				<div role="tabpanel" class="tab-pane fade" id="co">
 					<br/><br/>
@@ -88,6 +96,7 @@ $this->load->view('header_view');
 					?>
 				</div>
 				<?php } ?>
+
 				<div role="tabpanel" class="tab-pane fade" id="ev">
 					<br/><br/>
 					<?php
@@ -103,6 +112,7 @@ $this->load->view('header_view');
 						}
 					?>
 				</div>
+
 				<?php if ($this->session->userdata('logged_in')){ ?>
 				<div role="tabpanel" class="tab-pane fade" id="us">
 					<br/><br/>
@@ -120,6 +130,7 @@ $this->load->view('header_view');
 					?>
 				</div>
 				<?php } ?>
+				
 			</div>
 			<?php } ?>
 

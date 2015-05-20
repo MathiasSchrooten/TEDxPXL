@@ -26,13 +26,9 @@ class VerifyForum extends CI_Controller {
        $data['catId'] = $_POST["categorieId"];
      }
      $this->load->view('foruminsert_view', $data);
-    // $this->load->view('foruminsert_view');
    }
    else
    {
-     //Go to private area
-     //$data['catId'] = $this->uri->segment(3);
-     //echo site_url('forum')."/".$data['catId'];
 
      $data=[];
      $data["title"]=$_POST["title"];

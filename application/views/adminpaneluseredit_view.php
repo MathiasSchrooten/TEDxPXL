@@ -5,7 +5,6 @@
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
 		 $data['id'] = $session_data['id'];
-		 //$this->load->view('home_view', $data);
 	   }
 	   else
 	   {
@@ -23,7 +22,7 @@
 				window.location='<?php echo site_url('adminpanel'); ?>';
 			}
 		</script>
-		
+
 			<div id="fea" class="features">
 				<div class="container text-center">
 					<div class="head text-center">
@@ -64,8 +63,8 @@
 								<p>Signature: </p>
 								<textarea id="Signature" maxlength="250" name="Signature"><?=$r->Signature?></textarea>
 							<br/>
-								<input type="button" value="Back" onClick="back();"/>    
-								<input type="submit" value="Save changes" name="action" onclick="if(document.getElementById('Picture').value=!==''){getValue()}"/>                    
+								<input type="button" value="Back" onClick="back();"/>
+								<input type="submit" value="Save changes" name="action" onclick="if(document.getElementById('Picture').value=!==''){getValue()}"/>
 						</form>
 					<?php endforeach; ?>
 					</div>

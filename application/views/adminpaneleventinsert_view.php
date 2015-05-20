@@ -5,7 +5,6 @@
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
 		 $data['id'] = $session_data['id'];
-		 //$this->load->view('home_view', $data);
 	   }
 	   else
 	   {
@@ -26,7 +25,7 @@
 				if (document.getElementById('Place').value !="")
 				{
 					document.getElementById("map").innerHTML = "<iframe width='600' height='450' frameborder='0' style='border:0' src='https://www.google.com/maps/embed/v1/place?key=AIzaSyBFYwVXpe3XZwBsx4-UxIe08FDddqZsUzY&q=" + document.getElementById('Place').value + "'></iframe>";
-			
+
 				}
 				else
 				{
@@ -61,7 +60,7 @@
 								<textarea id="About" maxlength="250" name="Description" placeholder="Event description..."></textarea>
 								<p>Created by: </p>
 								<select class="textarea" name="UserId" id="UserId">
-									<?php foreach($users as $user): 
+									<?php foreach($users as $user):
 										if ($user->UserId===$r->UserId)
 										{
 									?>
@@ -72,9 +71,9 @@
 										{
 									?>
 										<option value="<?=$user->UserId?>"><?=$user->Username?></option>
-									<?php	
+									<?php
 										}
-										endforeach; 
+										endforeach;
 									?>
 								</select>
 							<br/>
@@ -86,8 +85,8 @@
 								<p>Time: </p>
 								<input class="time" type="time" maxlength="50" size="20" id="Time" name="Time" value="<?php echo time('H:i:s'); ?>"/>
 							<br/>
-								<input type="button" value="Back" onClick="back();"/>    
-								<input type="submit" value="Create event" name="action" onclick="if(document.getElementById('Image').value=!==''){getValue()}"/>                    
+								<input type="button" value="Back" onClick="back();"/>
+								<input type="submit" value="Create event" name="action" onclick="if(document.getElementById('Image').value=!==''){getValue()}"/>
 						</form>
 					</div>
 				</div>

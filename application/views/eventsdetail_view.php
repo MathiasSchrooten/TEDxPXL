@@ -3,7 +3,6 @@
 	   {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
-		 //$this->load->view('home_view', $data);
 	   }
 	   else
 	   {
@@ -26,7 +25,7 @@
 					<div class="col-md-6 blog-time-line-left" >
 						<img id="foto" src="<?php echo base_url();?>assets/events/<?=$r->Image?>" title="<?=$r->Title?>" />
 					</div>
-					
+
 					<div class="col-md-6 blog-time-line-right">
 						<div class="blog-post">
 							<div class="col-md-8 blog-post-info">
@@ -42,8 +41,8 @@
 								<p><?=$r->Description?></p>
 								</br>
 								<iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?key=AIzaSyBFYwVXpe3XZwBsx4-UxIe08FDddqZsUzY&q=<?=$r->Place?>"></iframe>
-								
-							</div>							
+
+							</div>
 						</div>
 					</div>
 				</div>

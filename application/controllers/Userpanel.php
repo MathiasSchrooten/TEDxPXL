@@ -2,7 +2,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class Userpanel extends CI_Controller {
-	
+
 	public function index(){
 		$this->load->database();
 		$this->load->model("userpanel_model");
@@ -12,7 +12,7 @@ class Userpanel extends CI_Controller {
 
 		$data=array('results'=>$results);
 
-		$this->load->view('userpanel_view',$data); 
+		$this->load->view('userpanel_view',$data);
 	}
 	public function update(){
 		if (isset($_POST["action"])){
@@ -20,12 +20,12 @@ class Userpanel extends CI_Controller {
 			$target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
 			$imageFileType = pathinfo($target_file,PATHINFO_EXTENSION);
 			$data=[];
-			
+
 			if ($imageFileType!==null && $imageFileType!=="")
 			{
 				$uploadOk = 1;
 				echo basename($_FILES["fileToUpload"]["name"]);
-				
+
 				// Check if image file is a actual image or fake image
 				if(isset($_POST["submit"])) {
 					$check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
@@ -38,21 +38,15 @@ class Userpanel extends CI_Controller {
 					}
 				}
 				$index = 0;
-				
+
 				while (file_exists($target_file))
 				{
-					$target_file = str_replace("." . $imageFileType, "", $target_file); 
+					$target_file = str_replace("." . $imageFileType, "", $target_file);
 					$target_file = $target_file . $index;
 					$target_file = $target_file . "." . $imageFileType;
 					$index++;
 				}
-				
-				// Check if file already exists
-				//if (file_exists($target_file)) {
-					//echo "Sorry, file already exists.";
-					//$uploadOk = 0;
-				//}
-				
+
 				// Check file size
 				if ($_FILES["fileToUpload"]["size"] > 500000) {
 					echo "Sorry, your file is too large.";
@@ -75,15 +69,14 @@ class Userpanel extends CI_Controller {
 						echo "Sorry, there was an error uploading your file.";
 					}
 				}
-				
-				$data["Picture"]= str_replace("./assets/users/", "", $target_file); 
+
+				$data["Picture"]= str_replace("./assets/users/", "", $target_file);
 			}
 			else
 			{
-				$data["Picture"]= $_POST["Picture"]; 
+				$data["Picture"]= $_POST["Picture"];
 			}
 			
-			//$data["UserId"]=$_POST["UserId"];
 			$data["Username"]=$_POST["Username"];
 			$data["Password"]=$_POST["Password"];
 			$data["Email"]=$_POST["Email"];
@@ -92,10 +85,10 @@ class Userpanel extends CI_Controller {
 			$data["Role"]=$_POST["Role"];
 			$data["Signature"]=$_POST["Signature"];
 			$data["About"]=$_POST["About"];
-			
+
 			$this->load->model("Userpanel_model");
-			
-			$this->Userpanel_model->update($_POST["UserId"],$data); 
+
+			$this->Userpanel_model->update($_POST["UserId"],$data);
 			redirect(base_url().index_page().'/userpanel/', 'refresh');
 		}
 		else
@@ -104,7 +97,7 @@ class Userpanel extends CI_Controller {
 			$this->load->model('userpanel_model');
 			$results=$this->userpanel_model->getDetails();
 			$data=array('results'=>$results);
-			$this->load->view('userpanel_view', $data);			
+			$this->load->view('userpanel_view', $data);
 		}
 	}
 }
