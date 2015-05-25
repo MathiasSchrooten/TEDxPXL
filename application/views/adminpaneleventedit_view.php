@@ -4,6 +4,7 @@
 	   {
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
+		 $data['role'] = $session_data['role'];
 		 $data['id'] = $session_data['id'];
 		 //$this->load->view('home_view', $data);
 	   }
@@ -64,19 +65,23 @@
 								<p>Created by: </p>
 								<select class="textarea" name="UserId" id="UserId">
 									<?php foreach($users as $user): 
-										if ($user->UserId===$r->UserId)
+										if ($user->Role==="1")
 										{
-									?>
-										<option value="<?=$user->UserId?>" selected><?=$user->Username?></option>
-									<?php
+											if ($user->UserId===$r->UserId)
+											{
+										?>
+											<option value="<?=$user->UserId?>" selected><?=$user->Username?></option>
+										<?php
+											}
+											else
+											{
+										?>
+											<option value="<?=$user->UserId?>"><?=$user->Username?></option>
+										<?php	
+											}
+																					
 										}
-										else
-										{
-									?>
-										<option value="<?=$user->UserId?>"><?=$user->Username?></option>
-									<?php	
-										}
-										endforeach; 
+									endforeach; 	
 									?>
 								</select>
 							<br/>

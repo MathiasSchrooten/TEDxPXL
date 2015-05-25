@@ -1,5 +1,13 @@
     <?php
 		$this->load->view('header_view');
+		if (isset($empty))
+		{
+			$isEmpty = true;
+		}
+		else
+		{
+			$isEmpty = false;
+		}
 	?>
 
 		<script>
@@ -34,7 +42,7 @@
 					</tr>
 				<thead>
 
-				<?php if (empty($results)) { ?>
+				<?php if ($isEmpty===true) { ?>
 						<tr>
 							<td>There have been no posts yet</td>
 						</tr>

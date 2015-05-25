@@ -8,9 +8,11 @@ class Adminpanel extends CI_Controller {
 
   		$results1=$this->adminpanel_model->getUsers();
 		$results2=$this->adminpanel_model->getEvents();
+		$results3=$this->adminpanel_model->getCategories();
+		
 		$data["users"]=array('users'=>$results1);
 		$data["events"] =array('events'=>$results2);
-
+		$data["categories"] =array('categories'=>$results3);
 
   		$this->load->view('adminpanel_view',$data);
   }
@@ -29,7 +31,7 @@ class Adminpanel extends CI_Controller {
 
 			$this->load->view('adminpaneluseredit_view',$data);
 		}
-		else
+		else if ($what==='event')
 		{
 			$users=$this->adminpanel_model->getUsers();
 			$results=$this->adminpanel_model->getEventById($Id);
@@ -37,16 +39,32 @@ class Adminpanel extends CI_Controller {
 
 			$this->load->view('adminpaneleventedit_view',$data);
 		}
+		else if ($what==='category')
+		{
+			$results=$this->adminpanel_model->getCategoryById($Id);
+			$data=array('results'=>$results);
+
+			$this->load->view('adminpanelcategoryedit_view',$data);
+		}
   }
 
   public function insert(){
 		$this->load->database();
   		$this->load->model("adminpanel_model");
 
-		$users=$this->adminpanel_model->getUsers();
-	    $data=array('users'=>$users);
+		$what = $this->uri->segment(3);
+		
+		if ($what==='event')
+		{
+			$users=$this->adminpanel_model->getUsers();
+			$data=array('users'=>$users);
 
-		$this->load->view('adminpaneleventinsert_view',$data);
+			$this->load->view('adminpaneleventinsert_view',$data);
+		}
+		else if ($what==='category')
+		{
+			$this->load->view('adminpanelcategoryinsert_view');
+		}
   }
 
   public function deleteUser() {
@@ -64,7 +82,41 @@ class Adminpanel extends CI_Controller {
 
 	  redirect('adminpanel','refresh');
   }
+  
+  public function deleteCategory() {
+	  $CategorieId= $this->uri->segment(3);
+	  $this->load->model('Adminpanel_model');
+	  $this->Adminpanel_model->deleteCategory($CategorieId);
 
+	  redirect('adminpanel','refresh');
+  }
+
+  public function editCategory() {
+		if (isset($_POST["action"])){
+			$data["Name"]=$_POST["Name"];
+
+			$this->load->model("adminpanel_model");
+
+			$this->adminpanel_model->editCategory($_POST["CategorieId"],$data);
+			redirect(base_url().index_page().'/adminpanel/', 'refresh');
+		}
+		else
+		{
+			$this->load->database();
+			$this->load->model("adminpanel_model");
+
+			$results1=$this->adminpanel_model->getUsers();
+			$results2=$this->adminpanel_model->getEvents();
+			$results3=$this->adminpanel_model->getCategories();
+			
+			$data["users"]=array('users'=>$results1);
+			$data["events"] =array('events'=>$results2);
+			$data["categories"] =array('categories'=>$results3);
+
+			$this->load->view('adminpanel_view',$data);
+		}
+	}
+  
   public function editUser() {
 		if (isset($_POST["action"])){
 			$target_dir = "./assets/users/";
@@ -149,8 +201,11 @@ class Adminpanel extends CI_Controller {
 
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
+			$results3=$this->adminpanel_model->getCategories();
+			
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
+			$data["categories"] =array('categories'=>$results3);
 
 			$this->load->view('adminpanel_view',$data);
 		}
@@ -238,9 +293,38 @@ class Adminpanel extends CI_Controller {
 			$this->load->model("adminpanel_model");
 
 			$results1=$this->adminpanel_model->getUsers();
-			$results2=$this->adminpanel_model->getEvent();
+			$results2=$this->adminpanel_model->getEvents();
+			$results3=$this->adminpanel_model->getCategories();
+			
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
+			$data["categories"] =array('categories'=>$results3);
+
+			$this->load->view('adminpanel_view',$data);
+		}
+	}
+	
+	public function createCategory() {
+		if (isset($_POST["action"])){
+			$data["Name"]=$_POST["Name"];
+
+			$this->load->model("adminpanel_model");
+
+			$this->adminpanel_model->insertCategory($data);
+			redirect(base_url().index_page().'/adminpanel/', 'refresh');
+		}
+		else
+		{
+			$this->load->database();
+			$this->load->model("adminpanel_model");
+
+			$results1=$this->adminpanel_model->getUsers();
+			$results2=$this->adminpanel_model->getEvents();
+			$results3=$this->adminpanel_model->getCategories();
+			
+			$data["users"]=array('users'=>$results1);
+			$data["events"] =array('events'=>$results2);
+			$data["categories"] =array('categories'=>$results3);
 
 			$this->load->view('adminpanel_view',$data);
 		}
@@ -329,9 +413,12 @@ class Adminpanel extends CI_Controller {
 			$this->load->model("adminpanel_model");
 
 			$results1=$this->adminpanel_model->getUsers();
-			$results2=$this->adminpanel_model->getEvent();
+			$results2=$this->adminpanel_model->getEvents();
+			$results3=$this->adminpanel_model->getCategories();
+			
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
+			$data["categories"] =array('categories'=>$results3);
 
 			$this->load->view('adminpanel_view',$data);
 		}

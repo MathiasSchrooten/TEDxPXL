@@ -17,6 +17,7 @@ class Forum_model extends CI_Model {
 		$this->db->select('posts.PostId, posts.Title, posts.Description, posts.title,
 		categories.Name, categories.CategorieId, users.Username, users.UserId, count(comments.CommentId) as comCount');
 		$query=$this->db->get('posts');
+		
 		return $query->result();
 	}
 

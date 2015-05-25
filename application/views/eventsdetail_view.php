@@ -23,7 +23,7 @@
 			<?php foreach ($results as $r):?>
 				<div class="blog-time-line">
 					<div class="col-md-6 blog-time-line-left" >
-						<img id="foto" src="<?php echo base_url();?>assets/events/<?=$r->Image?>" title="<?=$r->Title?>" />
+						<img id="foto" class='img-rounded img-circle' src="<?php echo base_url();?>assets/events/<?=$r->Image?>" title="<?=$r->Title?>" />
 					</div>
 
 					<div class="col-md-6 blog-time-line-right">

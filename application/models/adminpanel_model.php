@@ -1,5 +1,16 @@
 <?php
 class Adminpanel_model extends CI_Model {
+	function getCategories() {
+		$query=$this->db->get('categories');
+		return $query->result();
+	}
+	
+	function getCategoryById($CategorieId) {
+		$this->db->Where('CategorieId', $CategorieId);
+		$query=$this->db->get('categories');
+		return $query->result();
+	}
+	
 	function getUsers(){
 		$query=$this->db->get('users');
 		return $query->result();
@@ -29,9 +40,19 @@ class Adminpanel_model extends CI_Model {
 	  $this->db->delete('users');
 	}
 
+	public function deleteCategory($CategorieId){
+	  $this->db->Where('CategorieId', $CategorieId);
+	  $this->db->delete('categories');
+	}
+	
 	public function deleteEvent($EventId){
 	  $this->db->Where('EventId', $EventId);
 	  $this->db->delete('events');
+	}
+	
+	public function editCategory($CategorieId,$data) {
+		$this->db->Where('CategorieId', $CategorieId);
+		$this->db->update('categories', $data);
 	}
 	
 	public function editUser($UserId,$data) {
@@ -46,6 +67,10 @@ class Adminpanel_model extends CI_Model {
 	
 	public function insertEvent($data) {
 		$this->db->insert('events', $data);
+	}
+	
+	public function insertCategory($data) {
+		$this->db->insert('categories', $data);
 	}
 }
 ?>

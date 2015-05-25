@@ -18,21 +18,25 @@ class Forum extends CI_Controller {
 
 	public function getForum()
 	{
-		if($this->uri->segment(2) !== '0'){
 		$catId = $this->uri->segment(2);
 
 		$this->load->database();
 		$this->load->model("forum_model");
+		$this->load->model("categories_model");
 
 		$results=$this->forum_model->getPostsById($catId);
 
-		$data=array('results'=>$results);
-
+		if (empty($results))
+		{
+			$results=$this->categories_model->getCategoryById($catId);
+			$data=array('results'=>$results,'empty'=>true);
+		}
+		else
+		{
+			$data=array('results'=>$results);
+		}
+		
 		$this->load->view('forum_view',$data);
-	}
-	else {
-		redirect('categories','refresh');
-	}
 	}
 
 	public function insert(){

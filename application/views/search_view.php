@@ -10,7 +10,7 @@ $this->load->view('header_view');
 			</div>
 
 				<form class="col-md 6 contact-left text-center" id="searching" method="get" action="">
-						<input type="text" size="20" id="search" name="search" class="search"
+						<input type="text" size="20" id="search" name="search" class="search" placeholder="Search..."
 						<?php if(isset($_GET['search'])){
 								echo "value='". $_GET['search'] ."'";
 						}
