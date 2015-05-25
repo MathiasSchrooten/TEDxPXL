@@ -6,7 +6,8 @@ class Events_model extends CI_Model {
 		return $query->result();
 	}
 	function searchEvents($search){
-		$query = $this->db->query("SELECT * FROM events WHERE title LIKE '%$search%' or description LIKE '%$search%' ");
+		$query = $this->db->query("SELECT * FROM events WHERE title LIKE '%".$this->db->escape_like_str($search)."%'
+		OR description LIKE '%$search%' ");
 		return $query->result();
 	}
 	public function update($id,$data){

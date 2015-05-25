@@ -23,7 +23,8 @@ class Posts_model extends CI_Model {
 	}
 
 	function searchPosts($search){
-		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%$search%' or description LIKE '%$search%'");
+		$query = $this->db->query("SELECT * FROM posts WHERE title LIKE '%".$this->db->escape_like_str($search)."%'
+		OR description LIKE '%".$this->db->escape_like_str($search)."%'");
 		return $query->result();
 	}
 	public function update($id,$data){

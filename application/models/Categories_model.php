@@ -12,7 +12,7 @@ class Categories_model extends CI_Model {
 
 		return $query->result();
 	}
-	
+
 	function getCategoryById($id){
 		$this->db->where('CategorieId', $id);
 		$query=$this->db->get('categories');
@@ -21,7 +21,7 @@ class Categories_model extends CI_Model {
 	}
 
 	function searchCategories($search){
-		$query = $this->db->query("SELECT * FROM categories WHERE name LIKE '%$search%'");
+		$query = $this->db->query("SELECT * FROM categories WHERE name LIKE '%".$this->db->escape_like_str($search)."%'");
 		return $query->result();
 	}
 }
