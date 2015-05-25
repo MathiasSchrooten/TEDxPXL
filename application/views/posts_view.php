@@ -24,6 +24,9 @@
 			{
 				document.getElementById('comment').value = document.getElementById('commenttext').value;
 			}
+      function edit(){
+				window.location='<?php echo base_url() . "index.php/adminpanel/edit/post/". $this->uri->segment(2); ?>';
+			}
 		</script>
 
 		<div id="fea" class="features">
@@ -32,6 +35,12 @@
 					<h3><span> </span> <?php foreach ($posts["posts"] as $r): ?><?=$r->Title?><?php break; endforeach; ?></h3>
 
 				<form class="col-md 6 contact-left text-center">
+          <?php
+          if($this->session->userdata('logged_in')) {
+            $session_data = $this->session->userdata('logged_in');
+            if($session_data['role'] === "1"):
+              ?> <input type="button" value="Edit" onClick="edit();"/>
+            <?php endif; } ?>
 					<input type="button" value="Back" onClick="back();"/>
 				</form>
 				</div>
