@@ -109,7 +109,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<div class="clearfix"> </div>
 				<!----//End-top-nav---->
 				<?php 
-					if(!(uri_string()==='login')) { 
+					if(!(uri_string()==='login') && !($this->uri->segment(1)==='userpage')) { 
 						$this->session->set_userdata('currentPage', uri_string()); 
 					} 
 					

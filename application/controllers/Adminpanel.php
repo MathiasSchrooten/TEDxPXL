@@ -25,6 +25,8 @@ class Adminpanel extends CI_Controller {
 		$what = $this->uri->segment(3);
 		$Id = $this->uri->segment(4);
 
+		$this->session->set_userdata('editId', $Id);
+		
 		if ($what==='user')
 		{
 			$results=$this->adminpanel_model->getUserById($Id);
@@ -44,17 +46,24 @@ class Adminpanel extends CI_Controller {
 		{
 			$results=$this->adminpanel_model->getCategoryById($Id);
 			$results2=$this->adminpanel_model->getPostsById($Id);
-			$results3=$this->adminpanel_model->getCommentsById($Id);
+			$results3=$this->adminpanel_model->getComments();
 			$data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
 
 			$this->load->view('adminpanelcategoryedit_view',$data);
 		}
 		else if ($what==='post')
 		{
-			$results=$this->adminpanel_model->getCategoryById($Id);
-			$data=array('results'=>$results,'posts'=>$results2);
+			$results=$this->adminpanel_model->getPostById($Id);
+			$data=array('results'=>$results);
 
-			$this->load->view('adminpanelcategoryedit_view',$data);
+			$this->load->view('adminpanelpostedit_view',$data);
+		}
+		else if ($what==='comment')
+		{
+			$results=$this->adminpanel_model->getCommentById($Id);
+			$data=array('results'=>$results);
+
+			$this->load->view('adminpanelcommentedit_view',$data);
 		}
   }
 
@@ -77,6 +86,36 @@ class Adminpanel extends CI_Controller {
 		}
   }
 
+  public function deleteComment() {
+	  $CommentId= $this->uri->segment(3);
+	  $this->load->model('adminpanel_model');
+	  $this->adminpanel_model->deleteComment($CommentId);
+	  
+	  $Id = $this->session->userdata('editId');
+	  
+      $results=$this->adminpanel_model->getCategoryById($Id);
+	  $results2=$this->adminpanel_model->getPostsById($Id);
+	  $results3=$this->adminpanel_model->getComments();
+	  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+	  $this->load->view('adminpanelcategoryedit_view',$data);
+  }
+  
+  public function deletePost() {
+	  $PostId= $this->uri->segment(3);
+	  $this->load->model('adminpanel_model');
+	  $this->adminpanel_model->deletePost($PostId);
+
+	  $Id = $this->session->userdata('editId');
+	  
+	  $results=$this->adminpanel_model->getCategoryById($Id);
+	  $results2=$this->adminpanel_model->getPostsById($Id);
+	  $results3=$this->adminpanel_model->getComments();
+	  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+	  $this->load->view('adminpanelcategoryedit_view',$data);
+  }
+  
   public function deleteUser() {
 	  $UserId= $this->uri->segment(3);
 	  $this->load->model('Adminpanel_model');
@@ -124,6 +163,82 @@ class Adminpanel extends CI_Controller {
 			$data["categories"] =array('categories'=>$results3);
 
 			$this->load->view('adminpanel_view',$data);
+		}
+	}
+	
+	public function editPost() {
+		if (isset($_POST["action"])){
+			$data["Description"]=$_POST["Description"];
+			$data["Title"]=$_POST["Title"];
+			$data["CategorieId"]=$_POST["CategorieId"];
+			$data["UserId"]=$_POST["UserId"];
+
+			$this->load->model("adminpanel_model");
+
+			$this->adminpanel_model->editPost($_POST["PostId"],$data);
+
+			//terug
+		  $Id = $this->session->userdata('editId');
+		  
+		  $results=$this->adminpanel_model->getCategoryById($Id);
+		  $results2=$this->adminpanel_model->getPostsById($Id);
+		  $results3=$this->adminpanel_model->getComments();
+		  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+		  $this->load->view('adminpanelcategoryedit_view',$data);
+		}
+		else
+		{
+			$this->load->database();
+			$this->load->model("adminpanel_model");
+
+			//terug
+		  $Id = $this->session->userdata('editId');
+		  
+		  $results=$this->adminpanel_model->getCategoryById($Id);
+		  $results2=$this->adminpanel_model->getPostsById($Id);
+		  $results3=$this->adminpanel_model->getComments();
+		  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+		  $this->load->view('adminpanelcategoryedit_view',$data);
+		}
+	}
+	
+	public function editComment() {
+		if (isset($_POST["action"])){
+			$data["Text"]=$_POST["Text"];
+			$data["PostId"]=$_POST["PostId"];
+			$data["UserId"]=$_POST["UserId"];
+
+			$this->load->database();
+			$this->load->model("adminpanel_model");
+
+			$this->adminpanel_model->editComment($_POST["CommentId"],$data);
+			
+			//terug
+		  $Id = $this->session->userdata('editId');
+		  
+		  $results=$this->adminpanel_model->getCategoryById($Id);
+		  $results2=$this->adminpanel_model->getPostsById($Id);
+		  $results3=$this->adminpanel_model->getComments();
+		  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+		  $this->load->view('adminpanelcategoryedit_view',$data);
+		}
+		else
+		{
+			$this->load->database();
+			$this->load->model("adminpanel_model");
+
+			//terug
+		  $Id = $this->session->userdata('editId');
+		  
+		  $results=$this->adminpanel_model->getCategoryById($Id);
+		  $results2=$this->adminpanel_model->getPostsById($Id);
+		  $results3=$this->adminpanel_model->getComments();
+		  $data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
+
+		  $this->load->view('adminpanelcategoryedit_view',$data);
 		}
 	}
   

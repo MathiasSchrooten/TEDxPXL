@@ -5,6 +5,7 @@
 		 $session_data = $this->session->userdata('logged_in');
 		 $data['username'] = $session_data['username'];
 		 $data['id'] = $session_data['id'];
+		 $page = $this->session->userdata('currentPage');
 	   }
 	   else
 	   {
@@ -12,6 +13,13 @@
 		 redirect('login', 'refresh');
 	   }
 	?>
+	
+		<script>
+			function back(){
+				window.location='<?php echo base_url() . "index.php/" . $page; ?>';
+			}
+		</script>
+	
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
@@ -34,6 +42,8 @@
 							<p> <?=$r->Lastname?> </p>
 							<p><strong>About yourself: </strong></p>
 							<p> <?=$r->About?> </p>
+							</br>
+							<input type="button" value="Back" onClick="back();"/>   
 					</form>
 				</div>
 				<?php endforeach;?>

@@ -14,7 +14,6 @@ class Adminpanel_model extends CI_Model {
 	function getPostsById($id)
 	{
 		$this->db->join('users', 'posts.UserId = users.UserId', 'right');
-		$this->db->join('categories', 'categories.CategorieId = posts.CategorieId');
 		$this->db->where('posts.CategorieId', $id);
 		$this->db->group_by('posts.PostId');
 
@@ -23,12 +22,31 @@ class Adminpanel_model extends CI_Model {
 		return $query->result();
 	}
 	
-	function getCommentsById($id)
+	function getPostById($id)
+	{
+		$this->db->join('users', 'posts.UserId = users.UserId', 'right');
+		$this->db->where('posts.PostId', $id);
+
+		$query=$this->db->get('posts');
+		
+		return $query->result();
+	}
+	
+	function getCommentById($id)
+	{
+		$this->db->join('posts', 'posts.PostId = comments.PostId', 'right');
+		$this->db->join('categories', 'categories.CategorieId = posts.CategorieId', 'right');
+		$this->db->join('users', 'comments.UserId = comments.UserId', 'right');
+		$this->db->where('comments.CommentId', $id);
+
+		$query=$this->db->get('comments');
+		
+		return $query->result();
+	}
+	
+	function getComments()
 	{
 		$this->db->join('users', 'comments.UserId = users.UserId', 'right');
-		$this->db->join('posts', 'posts.PostId = comments.PostId');
-		$this->db->where('comments.PostId', $id);
-		$this->db->group_by('comments.PostId');
 
 		$query=$this->db->get('comments');
 		
@@ -74,6 +92,16 @@ class Adminpanel_model extends CI_Model {
 	  $this->db->delete('events');
 	}
 	
+	public function deleteComment($CommentId){
+	  $this->db->Where('CommentId', $CommentId);
+	  $this->db->delete('comments');
+	}
+	
+	public function deletePost($PostId){
+	  $this->db->Where('PostId', $PostId);
+	  $this->db->delete('posts');
+	}
+	
 	public function editCategory($CategorieId,$data) {
 		$this->db->Where('CategorieId', $CategorieId);
 		$this->db->update('categories', $data);
@@ -87,6 +115,16 @@ class Adminpanel_model extends CI_Model {
 	public function editEvent($EventId,$data) {
 		$this->db->Where('EventId', $EventId);
 		$this->db->update('events', $data);
+	}
+	
+	public function editComment($CommentId,$data) {
+		$this->db->Where('CommentId', $CommentId);
+		$this->db->update('comments', $data);
+	}
+	
+	public function editPost($PostId,$data) {
+		$this->db->Where('PostId', $PostId);
+		$this->db->update('posts', $data);
 	}
 	
 	public function insertEvent($data) {
