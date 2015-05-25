@@ -36,7 +36,8 @@ class VerifyRegister extends CI_Controller {
 
      $sess_array = array(
        'id' => $this->user_model->insert($data),
-       'username' => $data["username"]
+       'username' => $data["username"],
+	   'register' => true
      );
      $this->session->set_userdata('logged_in', $sess_array);
      redirect(base_url().index_page().'/userpanel', 'refresh');
@@ -46,7 +47,8 @@ class VerifyRegister extends CI_Controller {
  {
    $sess_array = array(
      'id' => $id,
-     'username' => $username
+     'username' => $username,
+	 'register' => true
    );
    $this->session->set_userdata('logged_in', $sess_array);
  }

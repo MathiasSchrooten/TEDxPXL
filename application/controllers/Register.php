@@ -22,7 +22,7 @@ class Register extends CI_Controller {
 			$this->load->model("user_model");
 
 			$this->user_model->insert($data);
-		  redirect(base_url().index_page());
+		  //redirect(base_url().index_page());
 
 		}
 

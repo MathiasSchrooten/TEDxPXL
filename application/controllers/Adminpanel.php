@@ -20,6 +20,7 @@ class Adminpanel extends CI_Controller {
   public function edit(){
   		$this->load->database();
   		$this->load->model("adminpanel_model");
+		$this->load->model("forum_model");
 
 		$what = $this->uri->segment(3);
 		$Id = $this->uri->segment(4);
@@ -42,7 +43,15 @@ class Adminpanel extends CI_Controller {
 		else if ($what==='category')
 		{
 			$results=$this->adminpanel_model->getCategoryById($Id);
-			$data=array('results'=>$results);
+			$results2=$this->forum_model->getPostsById($Id);
+			$data=array('results'=>$results,'posts'=>$results2);
+
+			$this->load->view('adminpanelcategoryedit_view',$data);
+		}
+		else if ($what==='post')
+		{
+			$results=$this->adminpanel_model->getCategoryById($Id);
+			$data=array('results'=>$results,'posts'=>$results2);
 
 			$this->load->view('adminpanelcategoryedit_view',$data);
 		}

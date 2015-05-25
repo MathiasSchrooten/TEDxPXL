@@ -4,9 +4,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	if($this->session->userdata('logged_in')) { 
 		$session_data = $this->session->userdata('logged_in');
 		$data['username'] = $session_data['username'];
-		$data['role'] = $session_data['role'];
 		$data['id'] = $session_data['id'];
-		$data['picture'] = $session_data['picture'];
+
+		if ($session_data['register'] === false)
+		{
+			$data['role'] = $session_data['role'];
+			$data['picture'] = $session_data['picture'];
+		}
+		else
+		{
+			$data['role'] = "0";
+			$data['picture'] = "";
+		}
 	}	
 ?><!DOCTYPE html>
 <html>
@@ -106,9 +115,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					
 					if($this->session->userdata('logged_in')) { 	
 					?>
-						<p><img height='45' width='45' class='img-rounded img-circle' id='userPic' src="<?php echo base_url()?>assets/users/<?php echo $data['picture']?>" /> Hello <strong><a href="<?php echo site_url('userpage') ?>/<?php echo $data['id'] ?>"> <?php echo $data['username'] ?> </a></strong> you are
+						<p><a href="<?php echo site_url('userpanel'); ?>"><img height='45' width='45' class='img-rounded img-circle' id='userPic' src="<?php echo base_url()?>assets/users/<?php echo $data['picture']?>" /> <strong><?php echo $data['username'] ?></strong> you are
 					<?php
-						if($data['role']==="1"){ echo " an <strong>admin</strong></p>"; } else { echo " a <strong>member</strong></p>"; }
+						if($data['role']==="1"){ echo " an <strong>admin</strong></a></p>"; } else { echo " a <strong>member</strong></a></p>"; }
 					}
 				?>
 			</div>

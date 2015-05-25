@@ -30,7 +30,7 @@
 					</div>
 					</br>
 					<div class="col-md 6 contact-left">
-						<?php foreach( $results as $r): ?>
+					<?php foreach($results as $r): ?>
 								<form onSubmit="<php ?>" method="post" action="<?= site_url(array('Adminpanel','editCategory'))?>" enctype="multipart/form-data">
 								<p>Name: </p>
 								<input class="textarea" maxlength="50" type="text" size="20" id="Name" name="Name" value="<?=$r->Name?>"/>
@@ -40,6 +40,34 @@
 								<input type="submit" value="Save changes" name="action"/>                    
 						</form>
 					<?php endforeach; ?>
+					
+						</br>
+						<hr>
+						</br>
+						
+						<table class="table table-hover">
+							<thead>
+							  <tr>
+								<th>Posts</th>
+								<th>Description</th>
+								<th>Posted by</th>
+								<th>Edit</th>
+								<th>Delete</th>
+							  </tr>
+							</thead>
+							
+							<tbody>
+								<?php foreach ($posts as $r):?>
+									<tr class="contact-left">
+										<td><?=$r->Title?></td>
+										<td><?=$r->Description?></td>
+										<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
+										<td> <input type="button" value="Edit" onClick="window.location='<?php echo site_url(array('adminpanel','edit','user')); ?>/<?php echo $r->UserId?>'"/> </td>
+										<td> <input type="button" value="Delete" Onclick="if(confirm('Do you want to delete this user?')===true){window.location='<?php echo site_url('adminpanel'); ?>/deleteUser/<?php echo $r->UserId?>'}"/> </td>
+									</tr>
+								<?php endforeach;?>	
+							</tbody>
+						</table>
 					</div>
 				</div>
 			</div>

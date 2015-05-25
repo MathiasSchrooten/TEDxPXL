@@ -47,6 +47,7 @@ class VerifyLogin extends CI_Controller {
        $sess_array = array(
          'id' => $row->UserId,
          'username' => $row->Username,
+		 'register' => false,
 		 'role' => $row->Role,
 		 'picture' => $row->Picture
        );
