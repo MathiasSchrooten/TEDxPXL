@@ -14,7 +14,15 @@
 	?>
 		<script>
 			function back(){
-				window.location='<?php echo site_url('forum'); ?>/<?php foreach ($posts["posts"] as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
+				window.location='<?php echo site_url('forum'); ?>/<?php if(isset($data["CatId"])){
+          echo $CatId;
+        }
+        else{
+        foreach ($posts["posts"] as $r): ?><?=$r->CategorieId?><?php break; endforeach; }?>';
+			}
+      function getValue()
+			{
+				document.getElementById('comment').value = document.getElementById('commenttext').value;
 			}
 		</script>
 
@@ -36,14 +44,14 @@
 						</form>
 					</div>
 				<?php break; endforeach;?>
-				
+
 				<?php if (count($comments["comments"]) > 0) { foreach ($comments["comments"] as $r):?>
 					<div class="col-md 6 contact-left">
 						<form onSubmit="">
-							<p class="img-thumbnail"><img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /> <strong><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong> 
-								</br> <?=$r->Text?> 
+							<p class="img-thumbnail"><img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /> <strong><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong>
+								</br> <?=$r->Text?>
 							</p>
-							
+
 					  </form>
 					</div>
 				<?php endforeach; } else {?>
@@ -55,18 +63,28 @@
 				<?php } ?>
 				<hr>
 				<div class="col-md 6 contact-left text-center">
+          <?php echo form_open('VerifyComment'); ?>
 					<form id="newComment" class="col-md 6 contact-left text-center" action="<?= site_url(array('posts','insert')) ?>" method="POST">
 						<strong>New comment</strong>
 						<br/>
-						<textarea name="text" maxlength="250" form="newComment"></textarea>
-						<br/>
+						<textarea name="commenttext" id ="commenttext" maxlength="250" form="newComment"></textarea>
+            <input name="comment" id="comment" type="hidden"/>
+            <br/>
 						<input name="postedBy" type="hidden" value="<?php echo $data['id'] ?>" />
 						<br/>
 						<input name="postId" type="hidden" value="<?php echo $postId?>" />
+
+            <input name="catId" type="hidden" value="<?php if(isset($data["CatId"])){
+              echo $CatId;
+            }
+            else{
+            foreach ($posts["posts"] as $r): ?><?=$r->CategorieId?><?php break; endforeach; }?>"/>
 						<br/>
-						<input type="submit" name="action" value="Create Comment"/>
+						<input type="submit" name="action" value="Create Comment" onclick="getValue();"/>
 					</form>
+
 				</div>
+        <?php echo validation_errors("<div class='alert alert-danger'>",'</div>'); ?>
 			</div>
 		</div>
     </body>
