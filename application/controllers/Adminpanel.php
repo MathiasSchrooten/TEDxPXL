@@ -9,7 +9,7 @@ class Adminpanel extends CI_Controller {
   		$results1=$this->adminpanel_model->getUsers();
 		$results2=$this->adminpanel_model->getEvents();
 		$results3=$this->adminpanel_model->getCategories();
-		
+
 		$data["users"]=array('users'=>$results1);
 		$data["events"] =array('events'=>$results2);
 		$data["categories"] =array('categories'=>$results3);
@@ -26,7 +26,7 @@ class Adminpanel extends CI_Controller {
 		$Id = $this->uri->segment(4);
 
 		$this->session->set_userdata('editId', $Id);
-		
+
 		if ($what==='user')
 		{
 			$results=$this->adminpanel_model->getUserById($Id);
@@ -72,7 +72,7 @@ class Adminpanel extends CI_Controller {
   		$this->load->model("adminpanel_model");
 
 		$what = $this->uri->segment(3);
-		
+
 		if ($what==='event')
 		{
 			$users=$this->adminpanel_model->getUsers();
@@ -90,9 +90,9 @@ class Adminpanel extends CI_Controller {
 	  $CommentId= $this->uri->segment(3);
 	  $this->load->model('adminpanel_model');
 	  $this->adminpanel_model->deleteComment($CommentId);
-	  
+
 	  $Id = $this->session->userdata('editId');
-	  
+
       $results=$this->adminpanel_model->getCategoryById($Id);
 	  $results2=$this->adminpanel_model->getPostsById($Id);
 	  $results3=$this->adminpanel_model->getComments();
@@ -100,14 +100,14 @@ class Adminpanel extends CI_Controller {
 
 	  $this->load->view('adminpanelcategoryedit_view',$data);
   }
-  
+
   public function deletePost() {
 	  $PostId= $this->uri->segment(3);
 	  $this->load->model('adminpanel_model');
 	  $this->adminpanel_model->deletePost($PostId);
 
 	  $Id = $this->session->userdata('editId');
-	  
+
 	  $results=$this->adminpanel_model->getCategoryById($Id);
 	  $results2=$this->adminpanel_model->getPostsById($Id);
 	  $results3=$this->adminpanel_model->getComments();
@@ -115,7 +115,7 @@ class Adminpanel extends CI_Controller {
 
 	  $this->load->view('adminpanelcategoryedit_view',$data);
   }
-  
+
   public function deleteUser() {
 	  $UserId= $this->uri->segment(3);
 	  $this->load->model('Adminpanel_model');
@@ -131,10 +131,14 @@ class Adminpanel extends CI_Controller {
 
 	  redirect('adminpanel','refresh');
   }
-  
+
   public function deleteCategory() {
 	  $CategorieId= $this->uri->segment(3);
 	  $this->load->model('Adminpanel_model');
+    $posts = $this->Adminpanel_model->getPostsById($CategorieId);
+    foreach ($posts as $p) {
+      $this->Adminpanel_model->deletePost($p->PostId);
+    }
 	  $this->Adminpanel_model->deleteCategory($CategorieId);
 
 	  redirect('adminpanel','refresh');
@@ -157,7 +161,7 @@ class Adminpanel extends CI_Controller {
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
 			$results3=$this->adminpanel_model->getCategories();
-			
+
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
 			$data["categories"] =array('categories'=>$results3);
@@ -165,7 +169,7 @@ class Adminpanel extends CI_Controller {
 			$this->load->view('adminpanel_view',$data);
 		}
 	}
-	
+
 	public function editPost() {
 		if (isset($_POST["action"])){
 			$data["Description"]=$_POST["Description"];
@@ -179,7 +183,7 @@ class Adminpanel extends CI_Controller {
 
 			//terug
 		  $Id = $this->session->userdata('editId');
-		  
+
 		  $results=$this->adminpanel_model->getCategoryById($Id);
 		  $results2=$this->adminpanel_model->getPostsById($Id);
 		  $results3=$this->adminpanel_model->getComments();
@@ -194,7 +198,7 @@ class Adminpanel extends CI_Controller {
 
 			//terug
 		  $Id = $this->session->userdata('editId');
-		  
+
 		  $results=$this->adminpanel_model->getCategoryById($Id);
 		  $results2=$this->adminpanel_model->getPostsById($Id);
 		  $results3=$this->adminpanel_model->getComments();
@@ -203,7 +207,7 @@ class Adminpanel extends CI_Controller {
 		  $this->load->view('adminpanelcategoryedit_view',$data);
 		}
 	}
-	
+
 	public function editComment() {
 		if (isset($_POST["action"])){
 			$data["Text"]=$_POST["Text"];
@@ -214,10 +218,10 @@ class Adminpanel extends CI_Controller {
 			$this->load->model("adminpanel_model");
 
 			$this->adminpanel_model->editComment($_POST["CommentId"],$data);
-			
+
 			//terug
 		  $Id = $this->session->userdata('editId');
-		  
+
 		  $results=$this->adminpanel_model->getCategoryById($Id);
 		  $results2=$this->adminpanel_model->getPostsById($Id);
 		  $results3=$this->adminpanel_model->getComments();
@@ -232,7 +236,7 @@ class Adminpanel extends CI_Controller {
 
 			//terug
 		  $Id = $this->session->userdata('editId');
-		  
+
 		  $results=$this->adminpanel_model->getCategoryById($Id);
 		  $results2=$this->adminpanel_model->getPostsById($Id);
 		  $results3=$this->adminpanel_model->getComments();
@@ -241,7 +245,7 @@ class Adminpanel extends CI_Controller {
 		  $this->load->view('adminpanelcategoryedit_view',$data);
 		}
 	}
-  
+
   public function editUser() {
 		if (isset($_POST["action"])){
 			$target_dir = "./assets/users/";
@@ -327,7 +331,7 @@ class Adminpanel extends CI_Controller {
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
 			$results3=$this->adminpanel_model->getCategories();
-			
+
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
 			$data["categories"] =array('categories'=>$results3);
@@ -420,7 +424,7 @@ class Adminpanel extends CI_Controller {
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
 			$results3=$this->adminpanel_model->getCategories();
-			
+
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
 			$data["categories"] =array('categories'=>$results3);
@@ -428,7 +432,7 @@ class Adminpanel extends CI_Controller {
 			$this->load->view('adminpanel_view',$data);
 		}
 	}
-	
+
 	public function createCategory() {
 		if (isset($_POST["action"])){
 			$data["Name"]=$_POST["Name"];
@@ -446,7 +450,7 @@ class Adminpanel extends CI_Controller {
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
 			$results3=$this->adminpanel_model->getCategories();
-			
+
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
 			$data["categories"] =array('categories'=>$results3);
@@ -487,7 +491,7 @@ class Adminpanel extends CI_Controller {
 					$target_file = $target_file . "." . $imageFileType;
 					$index++;
 				}
-				
+
 
 				// Check file size
 				if ($_FILES["fileToUpload"]["size"] > 500000) {
@@ -540,7 +544,7 @@ class Adminpanel extends CI_Controller {
 			$results1=$this->adminpanel_model->getUsers();
 			$results2=$this->adminpanel_model->getEvents();
 			$results3=$this->adminpanel_model->getCategories();
-			
+
 			$data["users"]=array('users'=>$results1);
 			$data["events"] =array('events'=>$results2);
 			$data["categories"] =array('categories'=>$results3);
