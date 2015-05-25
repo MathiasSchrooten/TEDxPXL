@@ -18,9 +18,6 @@
 			function newPost(){
 				window.location='<?php echo site_url(array('forum','insert'))?>/<?php foreach ($results as $r): ?><?=$r->CategorieId?><?php break; endforeach; ?>';
 			}
-      function edit(){
-				window.location='<?php echo base_url() . "index.php/adminpanel/edit/category/". $this->uri->segment(2); ?>';
-			}
 		</script>
 
 		<div id="port" class="portfolio portfolio-box">
@@ -29,14 +26,7 @@
 				<p>Welcome to the forum of TEDxPXL</p>
 				</br>
 				<form class="col-md 6 contact-left text-center">
-
 					<input type="button" value="Back" onClick="back();"/>
-          <?php
-          if($this->session->userdata('logged_in')) {
-            $session_data = $this->session->userdata('logged_in');
-            if($session_data['role'] === "1"):
-              ?> <input type="button" value="Edit" onClick="edit();"/>
-            <?php endif; } ?>
 					<input type="button" value="New post" onClick="newPost()"/>
 				</form>
 			</div>

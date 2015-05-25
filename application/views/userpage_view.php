@@ -13,16 +13,13 @@
 		 redirect('login', 'refresh');
 	   }
 	?>
-
+	
 		<script>
 			function back(){
 				window.location='<?php echo base_url() . "index.php/" . $page; ?>';
 			}
-      function edit(){
-				window.location='<?php echo base_url() . "index.php/adminpanel/edit/user/". $this->uri->segment(2); ?>';
-			}
 		</script>
-
+	
 		<div id="fea" class="features">
 			<div class="container text-center">
 				<div class="head text-center">
@@ -46,13 +43,7 @@
 							<p><strong>About yourself: </strong></p>
 							<p> <?=$r->About?> </p>
 							</br>
-              <?php
-              if($this->session->userdata('logged_in')) {
-                $session_data = $this->session->userdata('logged_in');
-                if($session_data['role'] === "1"):
-                  ?> <input type="button" value="Edit" onClick="edit();"/>
-                <?php endif; } ?>
-							<input type="button" value="Back" onClick="back();"/>
+							<input type="button" value="Back" onClick="back();"/>   
 					</form>
 				</div>
 				<?php endforeach;?>

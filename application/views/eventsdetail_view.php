@@ -18,15 +18,6 @@
 					<h3><span> </span> Event detail</h3>
 					<p>Here you can see more info about the selected event</p>
 				</div>
-        <?php
-        if($this->session->userdata('logged_in')) {
-          $session_data = $this->session->userdata('logged_in');
-          if($session_data['role'] === "1"):
-            ?>
-            <form id="edit" class="col-md 6 contact-left text-center" action="<?php echo base_url() . "index.php/adminpanel/edit/event/". $this->uri->segment(2); ?>">
-              <input type="submit" value="Edit" />
-            </form>
-          <?php endif; } ?>
 			</div>
 			<!---- start-blog-time-line---->
 			<?php foreach ($results as $r):?>
@@ -55,9 +46,8 @@
 						</div>
 					</div>
 				</div>
-
 				<form id="back" class="col-md 6 contact-left text-center" action="<?php echo site_url('events'); ?>">
-          <input type="submit" value="Back"/>
+					<input type="submit" value="Back"/>
 				</form>
 			<?php endforeach;?>
 		</div>
