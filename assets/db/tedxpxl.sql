@@ -1,4 +1,4 @@
--- phpMyAdmin SQL Dump
+﻿-- phpMyAdmin SQL Dump
 -- version 4.2.11
 -- http://www.phpmyadmin.net
 --
@@ -36,10 +36,11 @@ CREATE TABLE IF NOT EXISTS `categories` (
 --
 
 INSERT INTO `categories` (`CategorieId`, `Name`) VALUES
-(1, 'Human experimentation'),
+(1, 'Math'),
 (2, 'Information technology'),
-(3, 'Dark magic'),
-(4, 'Game of Thrones');
+(3, 'Android Appdev'),
+(4, 'iOS Appdev'),
+(5, 'Future technologies');
 
 -- --------------------------------------------------------
 
@@ -59,8 +60,17 @@ CREATE TABLE IF NOT EXISTS `comments` (
 --
 
 INSERT INTO `comments` (`CommentId`, `Text`, `PostId`, `UserId`) VALUES
-(1, 'Test1', 1, 1),
-(2, 'test', 1, 1);
+(01, 'Hallo', 5, 1),
+(02, 'Helemaal mee eens!', 1, 3),
+(03, 'Wat stomme site? Leugenaar!', 2, 2),
+(04, 'Ja, echt nice gedaan!',1,2),
+(05, 'Ik sla deze alvast op bij mijn favorieten!', 1 , 4),
+(06, 'Deze site ga ik vaak gebruiken!' , 1 , 5),
+(07, 'Geen idee van', 4, 2),
+(08, 'Ok toch bedankt', 4 , 5),
+(09, 'Aub Steef: https://www.youtube.com/watch?v=lMymFYJWW5M', 3, 4),
+(10, 'Nice merci!', 3 ,1)
+;
 
 -- --------------------------------------------------------
 
@@ -84,8 +94,8 @@ CREATE TABLE IF NOT EXISTS `events` (
 --
 
 INSERT INTO `events` (`EventId`, `Title`, `Description`, `Date`, `Time`, `UserId`, `Image`, `Place`) VALUES
-(1, 'Internationale dag', 'Gratis bier, tequila. Be there', '2015-05-16', '13:00:00', 3, 'p30.jpg', 'khlim+hasselt'),
-(2, 'Les wiskunde', 'Dit is de wiskunde les van het jaar! Mevrouw Tans gaat ons alle hoeken van de kamer laten zien!', '2015-04-23', '12:22:00', 1, 'p6.jpg', 'PXL'),
+(1, 'Internationale dag', 'Leer iets bij over elke nationaliteit', '2015-05-16', '13:00:00', 3, 'p30.jpg', 'khlim+hasselt'),
+(2, 'Les wiskunde', 'Dit is de wiskunde les van het jaar!', '2015-04-23', '12:22:00', 1, 'p6.jpg', 'PXL'),
 (3, 'Koproltornooi', 'Rol rol rollen maar', '2015-04-24', '12:40:00', 4, 'p1.jpg', 'Amentstraat+11,+Stramproy');
 
 -- --------------------------------------------------------
@@ -109,9 +119,9 @@ CREATE TABLE IF NOT EXISTS `posts` (
 INSERT INTO `posts` (`PostId`, `Description`, `Title`, `UserId`, `CategorieId`) VALUES
 (1, 'Dit is wel een vette site zeg!', 'Vette site!', 1, 1),
 (2, 'Wat een stomme site...', 'Stomme site!', 1, 2),
-(3, 'Herpederp', 'Dit is een titel', 1, 2),
-(4, 'The king in the north!', 'Game of thrones is da best', 6, 4),
-(5, 'I will kill you all!', 'I Am The Dark Soully', 3, 3);
+(3, 'Heeft iemand die youtube link nog?', 'Youtube', 1, 5),
+(4, 'Wanneer is de eerste les?', 'Vraagje', 5, 4),
+(5, 'Hallo allemaal!', 'Welkom', 4, 3);
 
 -- --------------------------------------------------------
 
@@ -137,10 +147,11 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`UserId`, `Username`, `Password`, `Email`, `Firstname`, `Lastname`, `Role`, `Picture`, `Signature`, `About`) VALUES
-(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 1, 'Profiel.jpg', 'I am a cool guy!', 'I am a programmer'),
-(2, 'DylanGomes', '216692', 'dylangomes@live.be', 'Dylan', 'Gomes', 0, '', '', ''),
-(3, 'DarkSoully', '123', 'darkstormakadylan@gmail.com', 'Dylan', 'Gomes', 0, '', '', ''),
-(4, 'MathiasS', '123', 'mathiass@gmail.com', 'Mathias', 'Schrooten', 0, '', '', '');
+(1, 'StephanB', '123', 'stephanbisschop@hotmail.com', 'Stephan', 'Bisschop', 1, 'Stephan.jpg', 'I am a cool guy!', 'I am a programmer'),
+(2, 'DylanG', '123', 'dylangomes@live.be', 'Dylan', 'Gomes', 0, 'Dylan.jpg', '', ''),
+(3, 'JonasL', '123', 'jonaslodewyckx@gmail.com', 'Jonas', 'Lodewyckx', 0, 'Jonas.jpg', '', ''),
+(4, 'MathiasS', '123', 'mathiass@gmail.com', 'Mathias', 'Schrooten', 0, 'Mathias.jpg', '', ''),
+(5, 'TomV', '123', 'tomv@gmail.com', 'Tom', 'Veuskens', 0, 'Tom.jpg', '', '');
 
 --
 -- Indexen voor geëxporteerde tabellen

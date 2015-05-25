@@ -18,6 +18,7 @@ class Posts_model extends CI_Model {
 	{
 		$this->db->join('users', 'comments.UserId = users.UserId');
 		$this->db->where('comments.PostId', $id);
+		$this->db->order_by('comments.CommentId', 'asc');
 		$query=$this->db->get('comments');
 		return $query->result();
 	}
