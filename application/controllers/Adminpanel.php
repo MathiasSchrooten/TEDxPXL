@@ -43,8 +43,9 @@ class Adminpanel extends CI_Controller {
 		else if ($what==='category')
 		{
 			$results=$this->adminpanel_model->getCategoryById($Id);
-			$results2=$this->forum_model->getPostsById($Id);
-			$data=array('results'=>$results,'posts'=>$results2);
+			$results2=$this->adminpanel_model->getPostsById($Id);
+			$results3=$this->adminpanel_model->getCommentsById($Id);
+			$data=array('results'=>$results,'posts'=>$results2,'comments'=>$results3);
 
 			$this->load->view('adminpanelcategoryedit_view',$data);
 		}

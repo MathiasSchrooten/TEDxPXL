@@ -11,6 +11,30 @@ class Adminpanel_model extends CI_Model {
 		return $query->result();
 	}
 	
+	function getPostsById($id)
+	{
+		$this->db->join('users', 'posts.UserId = users.UserId', 'right');
+		$this->db->join('categories', 'categories.CategorieId = posts.CategorieId');
+		$this->db->where('posts.CategorieId', $id);
+		$this->db->group_by('posts.PostId');
+
+		$query=$this->db->get('posts');
+		
+		return $query->result();
+	}
+	
+	function getCommentsById($id)
+	{
+		$this->db->join('users', 'comments.UserId = users.UserId', 'right');
+		$this->db->join('posts', 'posts.PostId = comments.PostId');
+		$this->db->where('comments.PostId', $id);
+		$this->db->group_by('comments.PostId');
+
+		$query=$this->db->get('comments');
+		
+		return $query->result();
+	}
+	
 	function getUsers(){
 		$query=$this->db->get('users');
 		return $query->result();

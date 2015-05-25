@@ -48,7 +48,7 @@
 						<table class="table table-hover">
 							<thead>
 							  <tr>
-								<th>Posts</th>
+								<th>Posts & comments</th>
 								<th>Description</th>
 								<th>Posted by</th>
 								<th>Edit</th>
@@ -60,10 +60,25 @@
 								<?php foreach ($posts as $r):?>
 									<tr class="contact-left">
 										<td><?=$r->Title?></td>
-										<td><?=$r->Description?></td>
+										<td><?php if (strlen($r->Description)>50) { echo substr($r->Description,"0","50") . "..."; } else { echo $r->Description; } ?></td>
 										<td><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a></td>
 										<td> <input type="button" value="Edit" onClick="window.location='<?php echo site_url(array('adminpanel','edit','user')); ?>/<?php echo $r->UserId?>'"/> </td>
-										<td> <input type="button" value="Delete" Onclick="if(confirm('Do you want to delete this user?')===true){window.location='<?php echo site_url('adminpanel'); ?>/deleteUser/<?php echo $r->UserId?>'}"/> </td>
+										<td> <input type="button" value="Delete" Onclick="if(confirm('Do you want to delete this post?')===true){window.location='<?php echo site_url('adminpanel'); ?>/deleteUser/<?php echo $r->UserId?>'}"/> </td>
+										<?php if (count($comments) > 0) { foreach ($comments as $r):?>
+											<tr>
+												<td>
+													<img height="45" width="45" class="img-rounded img-circle" id="userPic" src="<?php echo base_url();?>assets/users/<?=$r->Picture?>" /> <strong><a href="<?php echo site_url('userpage'); ?>/<?=$r->UserId?>"><?=$r->Username?></a> :</strong> 
+												</td>
+												<td><?=$r->Text?> </td>
+												<td></td>
+												<td> <input type="button" value="Edit" onClick="window.location='<?php echo site_url(array('adminpanel','edit','user')); ?>/<?php echo $r->UserId?>'"/> </td>
+												<td> <input type="button" value="Delete" Onclick="if(confirm('Do you want to delete this comment?')===true){window.location='<?php echo site_url('adminpanel'); ?>/deleteUser/<?php echo $r->UserId?>'}"/> </td>
+											</tr>
+										<?php endforeach; } else {?>
+											<tr>
+												<td><strong>This post has no comments</strong></td>
+											</tr>
+										<?php } ?>
 									</tr>
 								<?php endforeach;?>	
 							</tbody>
